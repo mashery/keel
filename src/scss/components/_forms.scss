@@ -1,0 +1,116 @@
+/**
+ * @section Forms
+ * Styling for form elements.
+ */
+
+form,
+fieldset {
+	margin-bottom: var(--spacing);
+}
+
+fieldset {
+	border: 0;
+	padding: 0;
+}
+
+legend,
+label {
+	display: block;
+	margin: 0 0 0.3125em;
+	padding: 0;
+}
+
+/**
+ * 1. Correct font properties not being inherited.
+ * 2. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+	font: inherit; /* 1 */
+	margin: 0; /* 2 */
+	padding: 0.3125em;
+}
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ */
+input,
+optgroup,
+select,
+textarea {
+	color: var(--color-form-text);
+}
+
+input,
+textarea,
+select {
+	border: 1px solid var(--color-gray-dark);
+	display: block;
+	line-height: 1.5;
+	margin-bottom: 1.1875em;
+	width: 100%;
+
+	@media (min-width: $bp-medium) {
+		line-height: 1.5625;
+	}
+}
+
+form button,
+form .btn {
+	margin-bottom: 1.1875em;
+}
+
+textarea {
+	height: 8em;
+	overflow: auto;
+	resize: vertical;
+}
+
+[type="image"],
+[type="checkbox"],
+[type="radio"] {
+	cursor: pointer;
+	display: inline-block;
+	height: auto;
+	margin-bottom: 0.3125em;
+	padding: 0;
+	width: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+	margin-right: 0.25em;
+}
+
+input:focus,
+textarea:focus {
+	border-color: rgba(82, 168, 236, 0.8);
+}
+
+/**
+ * Inline inputs
+ */
+.input-inline {
+	display: inline-block;
+	vertical-align: middle;
+	width: auto;
+}
+
+/**
+ * Condensed inputs
+ */
+.input-condensed {
+	line-height: 1;
+	padding-top: 0.125em;
+	padding-bottom: 0.125em;
+	vertical-align: top;
+}
+
+// Submit inputs
+[type="submit"] {
+	@extend .input-inline;
+}

@@ -1,0 +1,17 @@
+/**
+ * @Section Images
+ * Image styling
+ */
+
+figure {
+	margin: 0 0 var(--spacing);
+	padding: 0;
+}
+
+figcaption {
+	font-size: 0.9375em;
+	font-style: italic;
+	color: var(--color-gray-dark);
+	padding-top: 0.5em;
+	text-align: center;
+}

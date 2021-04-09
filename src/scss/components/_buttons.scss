@@ -1,0 +1,149 @@
+/**
+ * @section Buttons
+ * Styling for CSS buttons.
+ */
+
+
+/**
+ * Primary buttons
+ */
+
+.btn {
+	background-color: var(--color-btn-primary-bg);
+	border: 0.125em solid var(--color-btn-primary-bg);
+	color: var(--color-btn-primary-text);
+	display: inline-block;
+	font-size: 0.9375em;
+	font-weight: normal;
+	line-height: 1.2;
+	margin-right: 0.3125em;
+	margin-bottom: 0.3125em;
+	padding: 0.5em 0.6875em;
+
+	&:hover,
+	&:active {
+		background-color: var(--color-btn-primary-bg-hover);
+		border-color: var(--color-btn-primary-bg-hover);
+		color: var(--color-btn-primary-text-hover);
+	}
+}
+
+a.btn {
+	text-decoration: none;
+}
+
+
+/**
+ * Secondary buttons
+ */
+.btn-secondary {
+	background-color: var(--color-btn-secondary-bg);
+	border-color: var(--color-btn-secondary-bg);
+	color: var(--color-btn-secondary-text);
+
+	&:hover,
+	&:active {
+		background-color: var(--color-btn-secondary-bg-hover);
+		border-color: var(--color-btn-secondary-bg-hover);
+		color: var(--color-btn-secondary-text-hover);
+	}
+}
+
+
+/**
+ * Tertiary buttons
+ */
+.btn-transparent {
+	background-color: var(--color-btn-transparent-bg);
+	border-color: var(--color-btn-transparent-border);
+	color: var(--color-btn-transparent-text);
+
+	&:hover,
+	&:active {
+		background-color: var(--color-btn-primary-bg);
+		border-color: var(--color-btn-primary-bg);
+		color: var(--color-btn-primary-text);
+		filter: brightness(1);
+	}
+}
+
+
+/**
+ * Active state
+ */
+
+.btn:active {
+	box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
+	outline: 0;
+}
+
+
+/**
+ * Disabled state
+ */
+
+.btn[disabled],
+[data-submitting] .btn {
+	box-shadow: none;
+	cursor: not-allowed;
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+
+/**
+ * Button size
+ */
+
+.btn-large {
+	font-size: 1em;
+	line-height: normal;
+	padding: 0.6875em 0.9375em;
+}
+
+
+/**
+ * Block-level buttons
+ */
+
+.btn-block {
+	display: block;
+	margin-right: 0;
+	padding-right: 0;
+	padding-left: 0;
+	width: 100%;
+}
+
+
+/**
+ * General styles
+ */
+
+.btn,
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+/**
+ * Remove right margin on last element and inputs
+ */
+.btn:last-child,
+input.btn {
+	margin-right: 0;
+}
+
+
+/**
+ * Default button styles
+ */
+
+button,
+[type="submit"] {
+	@extend .btn;
+}
