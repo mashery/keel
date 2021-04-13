@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+
+	<link rel="stylesheet" type="text/css" href="dist/css/default.css">
+	<style type="text/css">
+		[type="color"] {
+			height: 1.5em;
+			width: 3em;
+			padding: 0.0625em 0.125em;
+		}
+
+		.layout {
+			background-color: #e5e5e5;
+			font-size: 0.8125em;
+			margin-bottom: 0.25em;
+			padding: 0 1em;
+		}
+
+		#demo {
+			background-color: #e5e5e5;
+			border: 1px solid #808080;
+			border-radius: 0.1875em;
+			color: inherit;
+			display: inline-block;
+			padding: 0.5em 1em;
+			text-decoration: none;
+		}
+
+		#demo:active,
+		#demo:hover {
+			background-color: #cccccc;
+			filter: brightness(1);
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<h1>Demo</h1>
+
+		<div class="row">
+			<div class="grid-half">
+				<h2>1. Pick your theme</h2>
+				<p>The theme controls the layout of the header and navigation areas.</p>
+
+				<label>
+					<input type="radio" name="theme" value="default" checked>
+					Default
+				</label>
+
+				<div class="layout text-right">User Nav</div>
+				<div class="row margin-bottom">
+					<div class="layout grid-fourth">Logo</div>
+					<div class="layout grid-three-fourths">Main Nav</div>
+				</div>
+
+				<label>
+					<input type="radio" name="theme" value="combo">
+					Combo Nav
+				</label>
+
+				<div class="row margin-bottom">
+					<div class="layout grid-fourth">Logo</div>
+					<div class="layout grid-half">Main Nav</div>
+					<div class="layout grid-fourth text-right">User Nav</div>
+				</div>
+
+				<label>
+					<input type="radio" name="theme" value="big">
+					Big Nav
+				</label>
+
+				<div class="row">
+					<div class="layout grid-fourth">Logo</div>
+					<div class="layout grid-three-fourths text-right">User Nav</div>
+				</div>
+				<div class="margin-bottom"><div class="layout">Main Nav</div></div>
+
+				<label>
+					<input type="radio" name="theme" value="simple">
+					Simple
+				</label>
+
+				<div class="margin-bottom text-center">
+					<div class="layout">User Nav</div>
+					<div class="layout">Logo</div>
+					<div class="layout">Main Nav</div>
+				</div>
+
+				<h2>2. Pick your font stack</h2>
+
+				<label for="font">Font Stack (comma-separated)</label>
+				<input type="input" id="font" value='"Helvetica Neue", Arial, sans-serif'>
+
+				<h2>3. Pick Your Colors</h2>
+
+				<div class="row">
+					<div class="grid-third">
+						<label class="input-inline" for="color-text">Body Text</label>
+						<input type="color" id="color-text" value="#272727">
+					</div>
+					<div class="grid-third">
+						<label class="input-inline" for="color-form-text">Form Text</label>
+						<input type="color" id="color-form-text" value="#555555">
+					</div>
+					<div class="grid-third">
+						<label class="input-inline" for="color-link">Links</label>
+						<input type="color" id="color-link" value="#0088cc">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="grid-third">
+						<label class="input-inline" for="color-header-nav-bg">Header Background</label>
+						<input type="color" id="color-header-nav-bg" value="#ffffff">
+					</div>
+					<div class="grid-third">
+						<label class="input-inline" for="color-header-border">Header Border</label>
+						<input type="color" id="color-header-border" value="#e5e5e5">
+					</div>
+					<div class="grid-third">
+						<label class="input-inline" for="color-logo-link">Logo</label>
+						<input type="color" id="color-logo-link" value="#272727">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="grid-third">
+						<label class="input-inline" for="color-logo-link-hover">Logo on Hover</label>
+						<input type="color" id="color-logo-link-hover" value="#0088cc">
+					</div>
+					<div class="grid-third">
+						<label class="input-inline" for="color-nav-main-bg">Main Nav Background</label>
+						<input type="color" id="color-nav-main-bg" value="#ffffff">
+					</div>
+					<div class="grid-third">
+						<label class="input-inline" for="color-nav-main-link">Main Nav Links</label>
+						<input type="color" id="color-nav-main-link" value="#0088cc">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="grid-third">
+						<label class="input-inline" for="color-logo-link-hover">User Nav Background</label>
+						<input type="color" id="color-logo-link-hover" value="#ffffff">
+					</div>
+					<div class="grid-third">
+						<label class="input-inline" for="color-nav-main-bg">User Nav Links</label>
+						<input type="color" id="color-nav-main-bg" value="#0088cc">
+					</div>
+				</div>
+
+
+				<h2>4. Have a logo image?</h2>
+
+				<label for="logo">Logo Image URL</label>
+				<input type="input" id="logo">
+
+			</div>
+			<div class="grid-half">
+				<h2>5. Load Your Theme</h2>
+				<p>In the API Control Center under Manage > Portal > Portal Setup, add the following files and configurations.</p>
+
+				<label for="js-url"><strong>Head JavaScript File URL</strong></label>
+				<input type="text" id="js-url" value="https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist/js/keel.min.js" readonly>
+
+				<label for="css-url"><strong>Screen Stylesheet URL</strong></label>
+				<input type="text" id="css-url" value="https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist/css/default.css" readonly>
+
+				<label for="js-inline"><strong>Inline JavaScript > Head JavaScript</strong></label>
+				<textarea id="js-inline" readonly>// Default Layout
+keel.header('navUser', 'logo', 'navMain');
+keel.ready(function () {
+	let dom = keel.getDOM();
+	let wrap = keel.wrap(dom.logo, dom.navMain);
+	wrap.className = 'logo-nav-wrapper';
+});</textarea>
+
+				<label for="css-inline"><strong>Inline CSS > "Last Minute" CSS Overrides</strong></label>
+				<textarea id="css-inline" readonly></textarea>
+
+				<p><a id="demo" target="_blank" href="https://stagingcs17.mashery.com">Live Preview</a></p>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		//
+		// Variables
+		//
+
+		// DOM Nodes
+		let cssURL = document.querySelector('#css-url');
+		let jsInline = document.querySelector('#js-inline');
+		let cssInline = document.querySelector('#css-inline');
+		let logo = document.querySelector('#logo');
+		let demo = document.querySelector('#demo');
+
+		// Data
+		let cdn = 'https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist';
+		let font = '';
+		let colors = {};
+
+
+		//
+		// Methods
+		//
+
+		function setDemoURL () {
+			// let details = Object.assign({}, colors);
+			let details = {};
+			details.colors = Object.entries(colors).map(function (color) {
+				let [name, val] = color;
+				return `${name}:${val}`;
+			});
+			details.theme = document.querySelector('[name="theme"]:checked').value;
+			if (font.length) { details.font = font; }
+			if (logo.value.length) { details.logo = logo.value; }
+			demo.href = `http://stagingcs17.mashery.com?${new URLSearchParams(details).toString()}`;
+		}
+
+		function getThemeJS () {
+
+			let theme = document.querySelector('[name="theme"]:checked').value;
+
+			if (theme === 'default') {
+return `// Default Layout
+keel.header('navUser', 'logo', 'navMain');
+keel.ready(function () {
+	let dom = keel.getDOM();
+	let wrap = keel.wrap(dom.logo, dom.navMain);
+	wrap.className = 'logo-nav-wrapper';
+});`;
+			}
+
+			if (theme === 'combo') {
+return `// Combo Nav Layout
+keel.header('logo', 'navMain', 'navUser');`;
+			}
+
+			if (theme === 'big') {
+return `// Big Nav Layout
+keel.header('logo', 'navUser', 'navMain');
+keel.ready(function () {
+	let dom = keel.getDOM();
+	let wrap = keel.wrap(dom.logo, dom.navUser);
+	wrap.className = 'logo-nav-wrapper';
+});`;
+			}
+
+			if (theme === 'simple') {
+return `// Simple Layout - User, Logo, Main
+keel.header('navUser', 'logo', 'navMain');`;
+			}
+
+		}
+
+		function getLogoJS () {
+			if (logo.value.length) {
+return `
+
+// Logo
+keel.logo('${logo.value}');`;
+			}
+			return '';
+		}
+
+		function getThemeCSS () {
+			let css = [];
+			if (font.length) {
+				css.push(`    --font-primary: ${font};`);
+			}
+			for (let [key, value] of Object.entries(colors)) {
+				css.push(`    --${key}: ${value};`);
+			}
+			if (!css.length) return '';
+			return `:root {
+${css.join("\n")}
+}`;
+		}
+
+		function handleTheme (input) {
+			if (input.name !== 'theme') return;
+			cssURL.value = `${cdn}/css/${input.value}.css`;
+			jsInline.value = getThemeJS() + getLogoJS();
+		}
+
+		function handleFont (input) {
+			if (input.id !== 'font') return;
+			font = input.value;
+			cssInline.value = getThemeCSS();
+		}
+
+		function handleColors (input) {
+			if (!input.id.startsWith('color-')) return;
+			colors[input.id] = input.value;
+			cssInline.value = getThemeCSS();
+		}
+
+		function handleLogo (input) {
+			if (input.id !== 'logo') return;
+			jsInline.value = getThemeJS() + getLogoJS();
+		}
+
+
+		//
+		// Inits & Event Listeners
+		//
+
+		setDemoURL();
+		document.addEventListener('input', function (event) {
+			if (event.target.hasAttribute('readonly')) return;
+			handleTheme(event.target);
+			handleFont(event.target);
+			handleColors(event.target);
+			handleLogo(event.target);
+			setDemoURL();
+		});
+	</script>
+
+</body>
+</html>
