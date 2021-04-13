@@ -1,4 +1,4 @@
-/*! keel - default v1.0.0 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
+/*! keel - big v1.0.0 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
 @charset "UTF-8";
 :root {
 	/**
@@ -159,8 +159,8 @@ audio {
 /**
  * Base grid styles: single column
  */
-.container, .nav-user,
-.logo-nav-wrapper, .footer,
+.container, .logo-nav-wrapper,
+.nav-main, .footer,
 .content {
 	margin-left: auto;
 	margin-right: auto;
@@ -1010,27 +1010,22 @@ td {
 	justify-content: flex-end;
 }
 
-@media (min-width: 60em) {
-	.logo-nav-wrapper {
-		display: grid;
-		grid-template-columns: fit-content(20ch) minmax(min(50vw, 30ch), 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 1em;
-		grid-row-gap: 0;
-	}
-
-	.nav-logo {
-		grid-area: 1/1/2/2;
-	}
-
-	.nav-main-wrapper {
-		grid-area: 1/2/2/3;
-	}
-
-	.nav-main-list {
-		justify-content: flex-end;
-	}
+.logo-nav-wrapper {
+	display: grid;
+	grid-template-columns: fit-content(20ch) minmax(min(50vw, 30ch), 1fr);
+	grid-template-rows: 1fr;
+	grid-column-gap: 1em;
+	grid-row-gap: 0;
 }
+
+.nav-logo {
+	grid-area: 1/1/2/2;
+}
+
+.nav-user-wrapper {
+	grid-area: 1/2/2/3;
+}
+
 /**
  * @section Overrides
  * Nudge and tweak alignment, spacing, and visibility.
@@ -1244,22 +1239,22 @@ td {
  * Clear any floats
  */
 .clearfix:before, .container:before, .footer:before,
-.content:before, .nav-search:before, .nav-user:before,
-.logo-nav-wrapper:before,
+.content:before, .nav-search:before, .logo-nav-wrapper:before,
+.nav-main:before,
 .clearfix:after,
 .container:after,
 .footer:after,
 .content:after,
 .nav-search:after,
-.nav-user:after,
-.logo-nav-wrapper:after {
+.logo-nav-wrapper:after,
+.nav-main:after {
 	display: table;
 	content: " ";
 }
 
 .clearfix:after, .container:after, .footer:after,
-.content:after, .nav-search:after, .nav-user:after,
-.logo-nav-wrapper:after {
+.content:after, .nav-search:after, .logo-nav-wrapper:after,
+.nav-main:after {
 	clear: both;
 }
 

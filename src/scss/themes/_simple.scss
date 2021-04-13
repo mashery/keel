@@ -1,0 +1,13 @@
+/**
+ * @section Default Theme
+ */
+
+.header-nav {
+	@extend .container;
+	text-align: center;
+}
+
+.nav-user-list,
+.nav-main-list {
+	justify-content: center;
+}

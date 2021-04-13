@@ -3,9 +3,10 @@
  * Sets font styles for entire site
  */
 
-html {
-	scroll-behavior: smooth;
-}
+// html {
+// 	scroll-behavior: smooth;
+// }
+
 
 body {
 	background: var(--color-background);
@@ -170,7 +171,6 @@ h1, h2, h3, h4, h5, h6 {
 h1,
 .h1 {
 	font-size: 1.5em;
-	padding-top: 0.5em;
 
 	@media (min-width: $bp-medium) {
 		font-size: 1.75em;

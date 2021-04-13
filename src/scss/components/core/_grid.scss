@@ -14,15 +14,12 @@
 	width: var(--container-width);
 }
 
-.container-large {
-	max-width: var(--container-large-max-width);
+.container-small {
+	max-width: var(--container-small-max-width);
 }
 
-.header-nav,
-.footer,
-.content {
-	@extend .container;
-	@extend .container-large;
+.container-large {
+	max-width: var(--container-max-width);
 }
 
 

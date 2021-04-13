@@ -34,10 +34,24 @@ var keel = (function (exports) {
 	}
 
 	/**
+	 * Wrap one or more elements in a div
+	 * @param  {...Nodes} elems The elements to wrap
+	 * @return {Node}           The wrapper element
+	 */
+	function wrap (...elems) {
+		if (!elems.length) return;
+		let wrapper = document.createElement('div');
+		elems[0].before(wrapper);
+		wrapper.append(...elems);
+		return wrapper;
+	}
+
+	/**
 	 * Remove default Mashery styles from the UI
 	 */
 	function removeCSS () {
 		let styles = document.querySelectorAll('[href$="/Mashery-base.css"],[href$="/mashery-blue.css"],[href$="/print-default.css"],[href$="/styles/IE6.css"],[href$="/styles/IE7.css"],[href$="/styles/IE8.css"],[href$="/Iodocs/style.css"]');
+		// let styles = document.querySelectorAll('[href$="/Mashery-base.css"],[href$="/mashery-blue.css"],[href$="/print-default.css"],[href$="/styles/IE6.css"],[href$="/styles/IE7.css"]');
 		for (let style of styles) {
 			style.remove();
 		}
@@ -95,6 +109,10 @@ var keel = (function (exports) {
 		return prefix + id.toLowerCase().replace(/^[^a-z]+|[^\w:.-]+/g, '-').replace('read-', '').replace('home-', 'home').replace('-home', '');
 	}
 
+	/**
+	 * Check if the user is logged in or not
+	 * @return {Boolean} If true, user is logged in
+	 */
 	function isLoggedIn () {
 		return mashery_info && mashery_info.username;
 	}
@@ -139,15 +157,27 @@ var keel = (function (exports) {
 
 	/**
 	 * Replace on-page search with clone of header search
-	 * @param  {Node} headerSearch The header search form
+	 * @param  {Node} search The header search form
 	 */
-	function replaceSearch (headerSearch) {
-		let search = document.querySelector('.search-form');
+	function replaceSearch (search) {
 		if (!search) return;
-		let clone = headerSearch.cloneNode(true);
-		clone.classList.add('main-search');
-		clone.id = 'main-search';
-		search.replaceWith(clone);
+		let current = document.querySelector('.search-form');
+		if (!current) {
+			search.remove();
+			return;
+		}
+		fixSearch(search);
+		current.replaceWith(search);
+	}
+
+	/**
+	 * Remove junk elements from the DOM
+	 */
+	function removeJunk () {
+		let junk = document.querySelectorAll('#user-nav .status, #user-menu');
+		for (let elem of junk) {
+			elem.remove();
+		}
 	}
 
 	/**
@@ -164,6 +194,15 @@ var keel = (function (exports) {
 	}
 
 	/**
+	 * Add a conditional class if sidebar content is present
+	 */
+	function addSidebarClass () {
+		let sidebar = document.querySelector('#sub');
+		let className = !sidebar || !sidebar.innerText.length ? 'has-no-sidebar' : 'has-sidebar';
+		document.documentElement.classList.add(className);
+	}
+
+	/**
 	 * Store the DOM elements
 	 */
 	function setDOM (dom, _dom) {
@@ -171,34 +210,51 @@ var keel = (function (exports) {
 		// Public nodes
 		Object.assign(dom, {
 			logo: document.querySelector('#branding-logo'),
-			user: document.querySelector('#user ul'),
-			navMain: document.querySelector('#local ul'),
+			navUser: document.querySelector('#user-nav'),
+			navMain: document.querySelector('#local'),
 			navSecondary: document.querySelector('#footer > ul'),
 			navDocs: document.querySelector('#sub'),
-			info: document.querySelector('#siteinfo'),
-			search: document.querySelector('#header #search')
+			info: document.querySelector('#siteinfo')
 		});
 
 		// Private nodes
 		Object.assign(_dom, {
-			content: document.querySelector('#content'),
-			footer: document.querySelector('#footer')
+			content: document.querySelector('#content') || document.querySelector('#main'),
+			footer: document.querySelector('#footer'),
+			search: document.querySelector('#header #search')
 		});
 
 		// Fix dom elements
 		dom.logo = fixLogo(dom.logo);
-		fixSearch(dom.search);
-		replaceSearch(dom.search);
+		replaceSearch(_dom.search);
+		removeJunk();
+		addSidebarClass();
 
-		// Add classes
+		// Add classes and IDs
 		if (dom.logo) { dom.logo.classList.add('nav-logo'); }
-		if (dom.user) { dom.user.classList.add('nav-user'); }
-		if (dom.navMain ) { dom.navMain.classList.add('nav-main'); }
-		if (dom.search) {
-			dom.search.classList.add('nav-search');
-			dom.search.id = 'header-search';
+		if (dom.navUser) {
+			dom.navUser.id = 'nav-user-wrapper';
+			dom.navUser.className = 'nav-user-wrapper';
+			dom.navUser.firstElementChild.classList.add('nav-user-list');
+			let userWrap = wrap(dom.navUser.firstElementChild);
+			userWrap.className = 'nav-user';
 		}
-		if (dom.navSecondary) { dom.navSecondary.classList.add('nav-secondary'); }
+		if (dom.navMain ) {
+			dom.navMain.id = 'nav-main-wrapper';
+			dom.navMain.className = 'nav-main-wrapper';
+			dom.navMain.firstElementChild.classList.add('nav-main-list');
+			let mainWrap = wrap(dom.navMain.firstElementChild);
+			mainWrap.className = 'nav-main';
+		}
+		if (dom.navSecondary) {
+			dom.navSecondary.classList.add('nav-secondary-list');
+			let secondaryWrap = wrap(dom.navSecondary);
+			secondaryWrap.className = 'nav-secondary';
+		}
+		if (_dom.search) {
+			_dom.search.classList.add('form-search');
+			_dom.search.id = 'form-search';
+		}
 
 	}
 
@@ -216,6 +272,19 @@ var keel = (function (exports) {
 	}
 
 	/**
+	 * Inject a skip-nav link into the DOM
+	 * @param {Object} _dom The DOM elements
+	 */
+	function addSkipNav (_dom) {
+		let skip = document.createElement('a');
+		skip.className = 'screen-reader screen-reader-focusable';
+		skip.href = '#content';
+		skip.textContent = 'Skip to main content';
+		_dom.content.setAttribute('tabindex', -1);
+		document.body.prepend(skip);
+	}
+
+	/**
 	 * Add wrapper to the footer
 	 */
 	function addFooterWrapper (_dom) {
@@ -224,6 +293,21 @@ var keel = (function (exports) {
 		_dom.footer.before(wrap);
 		wrap.append(_dom.footer);
 	}
+
+	var $ = /*#__PURE__*/Object.freeze({
+		__proto__: null,
+		wrap: wrap,
+		removeCSS: removeCSS,
+		addClassHooks: addClassHooks,
+		prepCodeSnippets: prepCodeSnippets,
+		setDOM: setDOM,
+		addHeaderWrapper: addHeaderWrapper,
+		addFooterWrapper: addFooterWrapper,
+		addSkipNav: addSkipNav
+	});
+
+	let {wrap: wrap$1} = $;
+
 
 	/**
 	 * https://stagingcs17.mashery.com/
@@ -291,6 +375,7 @@ var keel = (function (exports) {
 		setDOM(dom, _dom);
 		addHeaderWrapper(_dom);
 		addFooterWrapper(_dom);
+		addSkipNav(_dom);
 		prepCodeSnippets();
 		isReady = true;
 		emit('keel:ready');
@@ -363,16 +448,6 @@ var keel = (function (exports) {
 
 	}
 
-	/**
-	 * Remove nav search
-	 */
-	function noSearch () {
-		ready(function () {
-			if (!dom.search) return;
-			dom.search.remove();
-		});
-	}
-
 	// Initialize app
 	removeCSS();
 	addClassHooks();
@@ -383,8 +458,8 @@ var keel = (function (exports) {
 	exports.getUsername = getUsername;
 	exports.header = header;
 	exports.logo = logo;
-	exports.noSearch = noSearch;
 	exports.ready = ready;
+	exports.wrap = wrap$1;
 
 	return exports;
 

@@ -6,7 +6,7 @@ var pkg = require('./package.json');
 // Configs
 var configs = {
 	name: 'keel',
-	files: ['default.scss'],
+	files: ['default.scss', 'combo.scss', 'big.scss', 'simple.scss'],
 	pathIn: 'src/scss',
 	pathOut: 'dist/css',
 	sourceMap: false,

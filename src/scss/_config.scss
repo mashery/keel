@@ -7,9 +7,9 @@
 // line height: 1.5em on small screens, 1.5625em on big screens
 
 // Breakpoints
-$bp-xsmall: 19em;
-$bp-small: 28em;
-$bp-medium: 38em;
+$bp-xsmall: 20em;
+$bp-small: 30em;
+$bp-medium: 40em;
 $bp-large: 60em;
 $bp-xlarge: 80em;
 
@@ -26,10 +26,29 @@ $bp-xlarge: 80em;
 	--color-highlight: #fbf9c9;
 	--color-link: #0088cc;
 
-	// Section colors
+	// Header
+	--color-header-nav-bg: transparent;
+	--color-header-border: #e5e5e5;
+
+	// Logo
+	--color-logo-link: #272727;
+	--color-logo-link-hover: #0088cc;
+
+	// Main Nav
+	--color-nav-main-bg: transparent;
+	--color-nav-main-link: #0088cc;
+	--color-nav-main-link-hover: inherit;
+
+	// User Nav
+	--color-nav-user-bg: transparent;
+	--color-nav-user-link: #0088cc;
+	--color-nav-user-link-hover: inherit;
+
+	// Footer
 	--color-footer-bg: #0088cc;
 	--color-footer-text: #ffffff;
 	--color-footer-link: #ffffff;
+	--color-footer-link-hover: inherit;
 
 	// Primary button
 	--color-btn-primary-bg: #0088cc;
@@ -65,6 +84,11 @@ $bp-xlarge: 80em;
 	--color-danger: #880e14; // Red
 
 	// HTTP Methods
+	--color-endpoint-bg: #f7f7f7; // Light gray
+	--color-endpoint-border: #808080; // Light gray
+	--color-endpoint-text: #272727;
+	--color-method-bg: #272727;
+	--color-method-text: #ffffff;
 	--color-get: #0088cc; // Blue
 	--color-post: #377f31; // Green
 	--color-put: #dba909; // Yellow
@@ -83,7 +107,7 @@ $bp-xlarge: 80em;
 	--font-size: 100%;
 	--spacing: 1.5625em;
 	--container-width: 88%;
-	--container-max-width: $bp-medium;
-	--container-large-max-width: $bp-large;
+	--container-max-width: 80em;
+	--container-small-max-width: 50em;
 
 }

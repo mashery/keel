@@ -1,0 +1,28 @@
+/**
+ * @section Default Theme
+ */
+
+.logo-nav-wrapper,
+.nav-main {
+	@extend .container;
+}
+
+.nav-user-list {
+	justify-content: flex-end;
+}
+
+.logo-nav-wrapper {
+	display: grid;
+	grid-template-columns: fit-content(20ch) minmax(min(50vw, 30ch), 1fr);
+	grid-template-rows: 1fr;
+	grid-column-gap: 1em;
+	grid-row-gap: 0;
+}
+
+.nav-logo {
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+.nav-user-wrapper {
+	grid-area: 1 / 2 / 2 / 3;
+}

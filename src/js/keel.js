@@ -1,5 +1,6 @@
 import * as _ from './components/utilities.js';
 import * as $ from './components/dom.js';
+let {wrap} = $;
 
 
 /**
@@ -68,6 +69,7 @@ function init () {
 	$.setDOM(dom, _dom);
 	$.addHeaderWrapper(_dom);
 	$.addFooterWrapper(_dom);
+	$.addSkipNav(_dom);
 	$.prepCodeSnippets();
 	isReady = true;
 	_.emit('keel:ready');
@@ -140,19 +142,9 @@ function logo (src, options = {}) {
 
 }
 
-/**
- * Remove nav search
- */
-function noSearch () {
-	ready(function () {
-		if (!dom.search) return;
-		dom.search.remove();
-	});
-}
-
 // Initialize app
 $.removeCSS();
 $.addClassHooks();
 init();
 
-export {ready, header, footer, logo, noSearch, getDOM, getUsername};
+export {ready, header, footer, logo, wrap, getDOM, getUsername};

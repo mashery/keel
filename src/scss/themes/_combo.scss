@@ -1,0 +1,33 @@
+/**
+ * @section Default Theme
+ */
+
+.header-nav {
+	@extend .container;
+}
+
+@media (min-width: $bp-large) {
+	.header-nav {
+		display: grid;
+		grid-template-columns: fit-content(20ch) minmax(min(50vw, 30ch), 1fr) minmax(min(20vw, 30ch), 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 1em;
+		grid-row-gap: 0;
+	}
+
+	.nav-logo {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+
+	.nav-main-wrapper {
+		grid-area: 1 / 2 / 2 / 3;
+	}
+
+	.nav-user-wrapper {
+		grid-area: 1 / 3 / 2 / 4;
+	}
+
+	.nav-user-list {
+		justify-content: flex-end;
+	}
+}
