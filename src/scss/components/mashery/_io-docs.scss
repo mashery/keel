@@ -10,8 +10,11 @@
 		max-width: 100%;
 	}
 
-	#controls {
-		display: none;
+	.credentials {
+		background-color: var(--color-gray-lighter);
+		border: 1px solid var(--color-gray-light);
+		margin-bottom: var(--spacing);
+		padding: 1.5em;
 	}
 
 	.endpointList,
@@ -34,6 +37,41 @@
 			display: none;
 			margin-top: 1em;
 		}
+
+		&.get {
+			background-color: var(--color-get-bg);
+			border-color: var(--color-get);
+		}
+
+		&.post {
+			background-color: var(--color-post-bg);
+			border-color: var(--color-post);
+		}
+
+		&.put {
+			background-color: var(--color-put-bg);
+			border-color: var(--color-put);
+		}
+
+		&.delete {
+			background-color: var(--color-delete-bg);
+			border-color: var(--color-delete);
+		}
+
+		&.patch {
+			background-color: var(--color-patch-bg);
+			border-color: var(--color-patch);
+		}
+
+		&.options {
+			background-color: var(--color-options-bg);
+			border-color: var(--color-options);
+		}
+
+		&.head {
+			background-color: var(--color-head-bg);
+			border-color: var(--color-head);
+		}
 	}
 
 	.http-method {
@@ -45,6 +83,42 @@
 		padding: 0.25em 0.5em;
 		text-align: center;
 		width: 4em;
+	}
+
+	.get .http-method {
+		background-color: var(--color-get);
+	}
+
+	.post .http-method {
+		background-color: var(--color-post);
+	}
+
+	.put .http-method {
+		background-color: var(--color-put);
+	}
+
+	.delete .http-method {
+		background-color: var(--color-delete);
+	}
+
+	.patch .http-method {
+		background-color: var(--color-patch);
+	}
+
+	.options .http-method {
+		background-color: var(--color-options);
+	}
+
+	.head .http-method {
+		background-color: var(--color-head);
+	}
+
+	.clear-results {
+		margin: 0 1em;
+	}
+
+	.select-all {
+		display: none;
 	}
 
 }

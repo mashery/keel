@@ -1,0 +1,184 @@
+/**
+ * @section Swagger UI
+ */
+
+#swagger {
+
+	.main {
+		min-height: unset;
+	}
+
+	.dialog-ux *,
+	.info *,
+	label {
+		font-family: var(--font-family);
+	}
+
+	.info *,
+	.dialog-ux .modal-ux-content p,
+	label {
+		font-size: var(--font-size);
+	}
+
+	input[type=text] {
+		@extend input;
+	}
+
+	.scheme-container {
+		@extend .credentials;
+	}
+
+	.btn {
+		@extend .btn;
+		height: unset;
+		width: unset;
+
+		svg {
+			fill: currentColor;
+			height: 1em;
+		}
+	}
+
+	.btn-done {
+		@extend .btn-secondary;
+	}
+
+	.close-modal,
+	.authorization__btn.unlocked {
+		&,
+		&:active,
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			border: none;
+			color: var(--color-black);
+		}
+
+		&:active {
+			box-shadow: unset;
+		}
+	}
+
+	.authorization__btn.unlocked {
+		margin-top: 0.25em;
+		opacity: 1;
+	}
+
+	.opblock-tag-section {
+		display: block
+	}
+
+	.opblock-tag {
+		display: block;
+		border-bottom: none;
+
+		&:hover {
+			background-color: transparent;
+		}
+
+		& > a {
+			@extend .h3;
+			color: var(--color-black);
+			text-decoration: none;
+		}
+
+		small {
+			@extend .text-muted;
+			font-size: 0.625em;
+			text-transform: none;
+			padding: 0;
+		}
+
+		.markdown p {
+			margin: 0;
+		}
+	}
+
+	.expand-operation {
+		display: none !important;
+	}
+
+	.opblock * {
+		font-size: inherit;
+
+		.opblock-summary-method {
+			height: unset;
+			left: unset;
+			min-width: 4.5em;
+			padding: unset;
+		}
+	}
+
+	.opblock-get {
+		background-color: var(--color-get-bg);
+		border-color: var(--color-get);
+
+		.opblock-summary-method {
+			background-color: var(--color-get);
+		}
+	}
+
+	.opblock-post {
+		background-color: var(--color-post-bg);
+		border-color: var(--color-post);
+
+		.opblock-summary-method {
+			background-color: var(--color-post);
+		}
+	}
+
+	.opblock-put {
+		background-color: var(--color-put-bg);
+		border-color: var(--color-put);
+
+		.opblock-summary-method {
+			background-color: var(--color-put);
+		}
+	}
+
+	.opblock-delete {
+		background-color: var(--color-delete-bg);
+		border-color: var(--color-delete);
+
+		.opblock-summary-method {
+			background-color: var(--color-delete);
+		}
+	}
+
+	.opblock-patch {
+		background-color: var(--color-patch-bg);
+		border-color: var(--color-patch);
+
+		.opblock-summary-method {
+			background-color: var(--color-patch);
+		}
+	}
+
+	.opblock-options {
+		background-color: var(--color-options-bg);
+		border-color: var(--color-options);
+
+		.opblock-summary-method {
+			background-color: var(--color-options);
+		}
+	}
+
+	.opblock-head {
+		background-color: var(--color-head-bg);
+		border-color: var(--color-head);
+
+		.opblock-summary-method {
+			background-color: var(--color-head);
+		}
+	}
+
+	.opblock-deprecated {
+		background-color: var(--color-gray-lighter);
+		border-color: var(--color-gray-light);
+
+		.opblock-summary-method {
+			background-color: var(--color-gray-darker);
+		}
+	}
+
+}

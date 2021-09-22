@@ -101,9 +101,14 @@ function loadTheme () {
 
 	// Get values
 	let params = getParams();
+	let hasParams = Object.keys(params).length;
+	if (hasParams) {
+		sessionStorage.setItem('themeDemo', JSON.stringify(params));
+	}
+	params = hasParams ? params : JSON.parse(sessionStorage.getItem('themeDemo'));
+	if (!params) return;
 	let css = getThemeCSS(params.font, params.colors); // needs work
 	let js = getThemeJS(params.theme) + getLogoJS(params.logo);
-	console.log(js);
 
 	// Get DOM elements
 	let cssLink = document.querySelector('[href^="https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist/css/"]');

@@ -71,6 +71,7 @@ function init () {
 	$.addFooterWrapper(_dom);
 	$.addSkipNav(_dom);
 	$.prepCodeSnippets();
+	$.cleanIODocs();
 	isReady = true;
 	_.emit('keel:ready');
 

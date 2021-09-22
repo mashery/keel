@@ -3,11 +3,6 @@
  * Sets font styles for entire site
  */
 
-// html {
-// 	scroll-behavior: smooth;
-// }
-
-
 body {
 	background: var(--color-background);
 	color: var(--color-text);
@@ -36,7 +31,7 @@ a {
 
 	&:active,
 	&:hover {
-		filter: brightness(0.6);
+		color: var(--color-primary-shade);
 	}
 }
 
@@ -61,7 +56,6 @@ a {
 	&:active,
 	&:hover {
 		color: var(--color-link);
-		filter: brightness(1);
 	}
 }
 

@@ -51,7 +51,6 @@ var keel = (function (exports) {
 	 */
 	function removeCSS () {
 		let styles = document.querySelectorAll('[href$="/Mashery-base.css"],[href$="/mashery-blue.css"],[href$="/print-default.css"],[href$="/styles/IE6.css"],[href$="/styles/IE7.css"],[href$="/styles/IE8.css"],[href$="/Iodocs/style.css"]');
-		// let styles = document.querySelectorAll('[href$="/Mashery-base.css"],[href$="/mashery-blue.css"],[href$="/print-default.css"],[href$="/styles/IE6.css"],[href$="/styles/IE7.css"]');
 		for (let style of styles) {
 			style.remove();
 		}
@@ -95,6 +94,15 @@ var keel = (function (exports) {
 			code.className = getLang(code.className);
 		}
 
+	}
+
+	/**
+	 * Remove expand/collapse toggles from IO-Docs page
+	 */
+	function cleanIODocs () {
+		let controls = document.querySelector('.page-ioDocs #controls');
+		if (!controls) return;
+		controls.remove();
 	}
 
 	/**
@@ -300,6 +308,7 @@ var keel = (function (exports) {
 		removeCSS: removeCSS,
 		addClassHooks: addClassHooks,
 		prepCodeSnippets: prepCodeSnippets,
+		cleanIODocs: cleanIODocs,
 		setDOM: setDOM,
 		addHeaderWrapper: addHeaderWrapper,
 		addFooterWrapper: addFooterWrapper,
@@ -377,6 +386,7 @@ var keel = (function (exports) {
 		addFooterWrapper(_dom);
 		addSkipNav(_dom);
 		prepCodeSnippets();
+		cleanIODocs();
 		isReady = true;
 		emit('keel:ready');
 

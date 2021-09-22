@@ -1,0 +1,24 @@
+/**
+ * @section Pages
+ * Overrides typography on pages and documentation
+ */
+
+
+/**
+ * Edit links
+ */
+
+#header-edit {
+    display: none;
+}
+
+.page-page,
+.page-docs {
+    .section-meta {
+        display: none;
+    }
+
+    .section-menu ul {
+        @extend .list-unstyled;
+    }
+}

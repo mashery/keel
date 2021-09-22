@@ -16,90 +16,47 @@ $bp-xlarge: 80em;
 :root {
 
 	/**
-	 * Colors
+	 * Theme
 	 */
 
-	// Text
-	--color-text: #272727; // Black
-	--color-form-text: #555555; // Dark Gray
-	--color-background: #ffffff; // White
-	--color-highlight: #fbf9c9;
-	--color-link: #0088cc;
-
-	// Header
-	--color-header-nav-bg: transparent;
-	--color-header-border: #e5e5e5;
-
-	// Logo
-	--color-logo-link: #272727;
-	--color-logo-link-hover: #0088cc;
-
-	// Main Nav
-	--color-nav-main-bg: transparent;
-	--color-nav-main-link: #0088cc;
-	--color-nav-main-link-hover: inherit;
-
-	// User Nav
-	--color-nav-user-bg: transparent;
-	--color-nav-user-link: #0088cc;
-	--color-nav-user-link-hover: inherit;
-
-	// Footer
-	--color-footer-bg: #0088cc;
-	--color-footer-text: #ffffff;
-	--color-footer-link: #ffffff;
-	--color-footer-link-hover: inherit;
-
-	// Primary button
-	--color-btn-primary-bg: #0088cc;
-	--color-btn-primary-text: #ffffff;
-	--color-btn-primary-bg-hover: #09567f;
-	--color-btn-primary-text-hover: #ffffff;
-
-	// Secondary button
-	--color-btn-secondary-bg: #377f31;
-	--color-btn-secondary-text: #ffffff;
-	--color-btn-secondary-bg-hover: #2e652a;
-	--color-btn-secondary-text-hover: #ffffff;
-
-	// Transparent button (looks like primary on hover)
-	--color-btn-transparent-bg: transparent;
-	--color-btn-transparent-border: #0088cc;
-	--color-btn-transparent-text: #0088cc;
-
 	// Gray tones
+	--color-black: #272727;
+	--color-white: #ffffff;
+	--color-gray-darker: #555555;
 	--color-gray-dark: #808080;
 	--color-gray-medium: #b2b2b2;
 	--color-gray-light: #e5e5e5;
 	--color-gray-lighter: #f7f7f7;
 
-	// Specialty colors
-	--color-code: #dd1144; // Fuscia
-	--color-rss: #e06c33; // Orange
+	// Main colors
+	--color-primary: #0088cc;   // Blue
+	--color-primary-shade: #09567f; // Darker blue
+	--color-secondary: #377f31; // Green
+	--color-secondary-shade: #2e652a; // Darker green
+	--color-accent-1: #dba909;  // Yellow
+	--color-accent-2: #880e14;  // Red
+	--color-accent-3: #860d8e;  // Purple
+	--color-accent-4: #cc7100;  // Orange
+	--color-accent-5: #00557f;  // Dark blue
 
-	// Alerts and warnings
-	--color-alert: #0888cd; // Blue
-	--color-success: #99B247; // Green
-	--color-warning: #dba909; // Yellow
-	--color-danger: #880e14; // Red
-
-	// HTTP Methods
-	--color-endpoint-bg: #f7f7f7; // Light gray
-	--color-endpoint-border: #808080; // Light gray
-	--color-endpoint-text: #272727;
-	--color-method-bg: #272727;
-	--color-method-text: #ffffff;
+	// HTTP methods
 	--color-get: #0088cc; // Blue
+	--color-get-bg: #e7f3fa;
 	--color-post: #377f31; // Green
+	--color-post-bg: #ebf2ea;
 	--color-put: #dba909; // Yellow
+	--color-put-bg: #fbf6e7;
 	--color-delete: #880e14; // Red
+	--color-delete-bg: #fdf2f3;
 	--color-patch: #860d8e; // Purple
+	--color-patch-bg: #fcf3fc;
 	--color-options: #cc7100; // Orange
+	--color-options-bg: #fff7ec;
 	--color-head: #00557f; // Dark Blue
+	--color-head-bg: #f1f9ff;
 
-	/**
-	 * Fonts
-	 */
+
+	// Fonts
 	--font-primary: "Helvetica Neue", Arial, sans-serif;
 	--font-monospace: Menlo, Monaco, "Courier New", monospace;
 
@@ -109,5 +66,75 @@ $bp-xlarge: 80em;
 	--container-width: 88%;
 	--container-max-width: 80em;
 	--container-small-max-width: 50em;
+
+
+	/**
+	 * Colors
+	 */
+
+	// Text
+	--color-text: var(--color-black); // Black
+	--color-form-text: var(--color-gray-darker); // Dark Gray
+	--color-background: var(--color-white); // White
+	--color-highlight: #fbf9c9;
+	--color-link: var(--color-primary);
+
+	// Header
+	--color-header-nav-bg: transparent;
+	--color-header-border: var(--color-gray-light);
+
+	// Logo
+	--color-logo-link: var(--color-black);
+	--color-logo-link-hover: var(--color-primary);
+
+	// Main Nav
+	--color-nav-main-bg: transparent;
+	--color-nav-main-link: var(--color-primary);
+	--color-nav-main-link-hover: inherit;
+
+	// User Nav
+	--color-nav-user-bg: transparent;
+	--color-nav-user-link: var(--color-primary);
+	--color-nav-user-link-hover: inherit;
+
+	// Footer
+	--color-footer-bg: var(--color-primary);
+	--color-footer-text: var(--color-white);
+	--color-footer-link: var(--color-white);
+	--color-footer-link-hover: inherit;
+
+	// Primary button
+	--color-btn-primary-bg: var(--color-primary);
+	--color-btn-primary-text: var(--color-white);
+	--color-btn-primary-bg-hover: var(--color-primary-shade);
+	--color-btn-primary-text-hover: var(--color-white);
+
+	// Secondary button
+	--color-btn-secondary-bg: var(--color-secondary);
+	--color-btn-secondary-text: var(--color-white);
+	--color-btn-secondary-bg-hover: var(--color-secondary-shade);
+	--color-btn-secondary-text-hover: var(--color-white);
+
+	// Transparent button (looks like primary on hover)
+	--color-btn-transparent-bg: transparent;
+	--color-btn-transparent-border: var(--color-primary);
+	--color-btn-transparent-text: var(--color-primary);
+
+	// Specialty colors
+	--color-code: #dd1144; // Fuscia
+	--color-rss: #e06c33; // Orange
+
+	// Alerts and warnings
+	--color-alert: var(--color-primary); // Blue
+	--color-success: var(--color-secondary); // Green
+	--color-warning: var(--color-accent-1); // Yellow
+	--color-danger: var(--color-accent-2); // Red
+
+	// HTTP Methods
+	--color-endpoint-bg: var(--color-gray-lighter); // Light gray
+	--color-endpoint-border: var(--color-gray-dark); // Light gray
+	--color-endpoint-text: var(--color-black);
+	--color-method-bg: var(--color-black);
+	--color-method-text: var(--color-white);
 
 }

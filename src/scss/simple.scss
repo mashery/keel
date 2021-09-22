@@ -1,7 +1,3 @@
-@import "config";
-@import "components/main";
-@import "components/mashery";
-@import "themes/base";
+@import "shared";
 @import "themes/simple";
-@import "components/core/overrides";
-@import "components/core/print";
+@import "shared-overrides";

@@ -16,7 +16,6 @@ function wrap (...elems) {
  */
 function removeCSS () {
 	let styles = document.querySelectorAll('[href$="/Mashery-base.css"],[href$="/mashery-blue.css"],[href$="/print-default.css"],[href$="/styles/IE6.css"],[href$="/styles/IE7.css"],[href$="/styles/IE8.css"],[href$="/Iodocs/style.css"]');
-	// let styles = document.querySelectorAll('[href$="/Mashery-base.css"],[href$="/mashery-blue.css"],[href$="/print-default.css"],[href$="/styles/IE6.css"],[href$="/styles/IE7.css"]');
 	for (let style of styles) {
 		style.remove();
 	}
@@ -60,6 +59,15 @@ function prepCodeSnippets () {
 		code.className = getLang(code.className);
 	}
 
+}
+
+/**
+ * Remove expand/collapse toggles from IO-Docs page
+ */
+function cleanIODocs () {
+	let controls = document.querySelector('.page-ioDocs #controls');
+	if (!controls) return;
+	controls.remove();
 }
 
 /**
@@ -259,4 +267,4 @@ function addFooterWrapper (_dom) {
 	wrap.append(_dom.footer);
 }
 
-export {wrap, removeCSS, addClassHooks, prepCodeSnippets, setDOM, addHeaderWrapper, addFooterWrapper, addSkipNav};
+export {wrap, removeCSS, addClassHooks, prepCodeSnippets, cleanIODocs, setDOM, addHeaderWrapper, addFooterWrapper, addSkipNav};
