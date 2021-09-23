@@ -50,7 +50,7 @@ var keel = (function (exports) {
 	 * Remove default Mashery styles from the UI
 	 */
 	function removeCSS () {
-		let styles = document.querySelectorAll('[href$="/Mashery-base.css"],[href$="/mashery-blue.css"],[href$="/print-default.css"],[href$="/styles/IE6.css"],[href$="/styles/IE7.css"],[href$="/styles/IE8.css"],[href$="/Iodocs/style.css"]');
+		let styles = document.querySelectorAll('[href$="/Mashery-base.css"],[href$="/mashery-blue.css"],[href$="/print-default.css"],[href$="/styles/IE6.css"],[href$="/styles/IE7.css"],[href$="/styles/IE8.css"],[href$="/Iodocs/style.css"],[href$="/styles/Swagger/swagger-ui.css"],[href$="/styles/Swagger/swagger-custom.css"]');
 		for (let style of styles) {
 			style.remove();
 		}
@@ -99,10 +99,43 @@ var keel = (function (exports) {
 	/**
 	 * Remove expand/collapse toggles from IO-Docs page
 	 */
-	function cleanIODocs () {
+	function removeIODocsControls () {
 		let controls = document.querySelector('.page-ioDocs #controls');
 		if (!controls) return;
 		controls.remove();
+	}
+
+	/**
+	 * Fix API select accessibility
+	 */
+	function fixAPISelect () {
+
+		// Get the elements
+		let apiTitle = document.querySelector('#apiTitle');
+		let apiSelect = document.querySelector('#apiId');
+		if (!apiTitle || !apiSelect) return;
+
+		// Create label
+		let label = document.createElement('label');
+		label.id = 'apiTitle';
+		label.setAttribute('for', 'apiId');
+		label.textContent = apiTitle.textContent;
+
+		// Clean select
+		apiSelect.style = '';
+
+		// Relocate
+		apiTitle.parentNode.after(label, apiSelect);
+		apiTitle.parentNode.remove();
+
+	}
+
+	/**
+	 * Clean DOM on IO-Docs page
+	 */
+	function cleanIODocs () {
+		removeIODocsControls();
+		fixAPISelect();
 	}
 
 	/**

@@ -99,7 +99,6 @@
 a,
 button,
 input,
-#swagger input[type=text],
 select,
 textarea,
 label,
@@ -430,19 +429,14 @@ h2,
 
 h3,
 .h3,
-#swagger .opblock-tag > a {
+#swagger .models h4,
+#swagger .opblock-tag .nostyle {
 	font-size: 1.1875em;
 }
 
 h4, h5, h6,
 .h4, .h5, .h6 {
 	font-size: 1em;
-}
-
-h4,
-.h4 {
-	font-size: 0.8125em;
-	text-transform: uppercase;
 }
 
 /**
@@ -528,8 +522,7 @@ pre code {
 /**
  * Primary buttons
  */
-.btn, #swagger .btn, #swagger button,
-#swagger [type=submit], button,
+.btn, button,
 [type=submit] {
 	background-color: var(--color-btn-primary-bg);
 	border: 0.125em solid var(--color-btn-primary-bg);
@@ -542,18 +535,15 @@ pre code {
 	margin-bottom: 0.3125em;
 	padding: 0.5em 0.6875em;
 }
-.btn:hover, #swagger .btn:hover, #swagger button:hover,
-#swagger [type=submit]:hover, button:hover,
-[type=submit]:hover, .btn:active, #swagger .btn:active, #swagger button:active,
-#swagger [type=submit]:active, button:active,
+.btn:hover, button:hover,
+[type=submit]:hover, .btn:active, button:active,
 [type=submit]:active {
 	background-color: var(--color-btn-primary-bg-hover);
 	border-color: var(--color-btn-primary-bg-hover);
 	color: var(--color-btn-primary-text-hover);
 }
 
-a.btn, #swagger a.btn,
-#swagger a[type=submit],
+a.btn,
 a[type=submit] {
 	text-decoration: none;
 }
@@ -561,12 +551,12 @@ a[type=submit] {
 /**
  * Secondary buttons
  */
-.btn-secondary, #swagger .btn-done {
+.btn-secondary {
 	background-color: var(--color-btn-secondary-bg);
 	border-color: var(--color-btn-secondary-bg);
 	color: var(--color-btn-secondary-text);
 }
-.btn-secondary:hover, #swagger .btn-done:hover, .btn-secondary:active, #swagger .btn-done:active {
+.btn-secondary:hover, .btn-secondary:active {
 	background-color: var(--color-btn-secondary-bg-hover);
 	border-color: var(--color-btn-secondary-bg-hover);
 	color: var(--color-btn-secondary-text-hover);
@@ -590,8 +580,7 @@ a[type=submit] {
 /**
  * Active state
  */
-.btn:active, #swagger .btn:active, #swagger button:active,
-#swagger [type=submit]:active, button:active,
+.btn:active, button:active,
 [type=submit]:active {
 	box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
 	outline: 0;
@@ -600,16 +589,9 @@ a[type=submit] {
 /**
  * Disabled state
  */
-.btn[disabled], #swagger [disabled].btn, #swagger button[disabled],
-#swagger [disabled][type=submit], button[disabled],
+.btn[disabled], button[disabled],
 [disabled][type=submit],
 [data-submitting] .btn,
-[data-submitting] #swagger .btn,
-#swagger [data-submitting] .btn,
-[data-submitting] #swagger button,
-#swagger [data-submitting] button,
-[data-submitting] #swagger [type=submit],
-#swagger [data-submitting] [type=submit],
 [data-submitting] button,
 [data-submitting] [type=submit] {
 	box-shadow: none;
@@ -641,17 +623,12 @@ a[type=submit] {
 /**
  * General styles
  */
-.btn, #swagger .btn, #swagger button,
-#swagger [type=submit],
+.btn,
 [type=submit],
 button,
 html input[type=button],
-html #swagger input[type=button][type=text],
-#swagger html input[type=button][type=text],
 input[type=reset],
-#swagger input[type=reset][type=text],
-input[type=submit],
-#swagger input[type=submit][type=text] {
+input[type=submit] {
 	cursor: pointer;
 	text-align: center;
 	vertical-align: middle;
@@ -660,12 +637,9 @@ input[type=submit],
 /**
  * Remove right margin on last element and inputs
  */
-.btn:last-child, #swagger .btn:last-child, #swagger button:last-child,
-#swagger [type=submit]:last-child, button:last-child,
+.btn:last-child, button:last-child,
 [type=submit]:last-child,
 input.btn,
-#swagger input.btn,
-#swagger input[type=submit],
 input[type=submit] {
 	margin-right: 0;
 }
@@ -700,7 +674,6 @@ label {
  */
 button,
 input,
-#swagger input[type=text],
 optgroup,
 select,
 textarea {
@@ -715,14 +688,14 @@ textarea {
  * 1. Correct color not being inherited.
  *    Known issue: affects color of disabled elements.
  */
-input, #swagger input[type=text],
+input,
 optgroup,
 select,
 textarea {
 	color: var(--color-form-text);
 }
 
-input, #swagger input[type=text],
+input,
 textarea,
 select {
 	border: 1px solid var(--color-gray-dark);
@@ -732,7 +705,7 @@ select {
 	width: 100%;
 }
 @media (min-width: 40em) {
-	input, #swagger input[type=text],
+	input,
 textarea,
 select {
 		line-height: 1.5625;
@@ -741,12 +714,6 @@ select {
 
 form button,
 form .btn,
-form #swagger .btn,
-#swagger form .btn,
-form #swagger button,
-#swagger form button,
-form #swagger [type=submit],
-#swagger form [type=submit],
 form [type=submit] {
 	margin-bottom: 1.1875em;
 }
@@ -773,7 +740,7 @@ textarea {
 	margin-right: 0.25em;
 }
 
-input:focus, #swagger input[type=text]:focus,
+input:focus,
 textarea:focus {
 	border-color: rgba(82, 168, 236, 0.8);
 }
@@ -879,10 +846,11 @@ td {
 /**
  * @section Interactive Docs
  */
-.page-ioDocs h2 select {
-	font-size: 0.761904762em;
-	font-weight: normal;
-	max-width: 100%;
+.page-ioDocs #apiTitle {
+	font-weight: bold;
+}
+.page-ioDocs #apiId {
+	width: auto;
 }
 .page-ioDocs .credentials, .page-ioDocs #swagger .scheme-container, #swagger .page-ioDocs .scheme-container {
 	background-color: var(--color-gray-lighter);
@@ -898,7 +866,7 @@ td {
 	border: 1px solid var(--color-endpoint-border);
 	color: var(--color-endpoint-text);
 	margin-bottom: 1em;
-	padding: 0.5em 1em;
+	padding: 0.5em;
 }
 .page-ioDocs .method form {
 	display: none;
@@ -973,80 +941,99 @@ td {
 /**
  * @section Swagger UI
  */
+#swagger {
+	/**
+	 * Endpoint Headers
+	 */
+	/**
+	 * HTTP Methods
+	 */
+	/**
+	 * Models
+	 */
+}
 #swagger .main {
 	min-height: unset;
 }
-#swagger .dialog-ux *,
-#swagger .info *,
-#swagger label {
-	font-family: var(--font-family);
+#swagger .topbar,
+#swagger .version,
+#swagger .info .link,
+#swagger .expand-operation {
+	display: none;
 }
-#swagger .info *,
-#swagger .dialog-ux .modal-ux-content p,
-#swagger label {
-	font-size: var(--font-size);
+#swagger .swagger-download-spec {
+	float: right;
+	padding-right: 0.625em;
+	padding-left: 0.625em;
 }
-#swagger .btn, #swagger .btn, #swagger button,
-#swagger [type=submit], #swagger button,
-#swagger [type=submit] {
-	height: unset;
-	width: unset;
-}
-#swagger .btn svg, #swagger button svg,
-#swagger [type=submit] svg, #swagger button svg {
+#swagger button svg {
 	fill: currentColor;
-	height: 1em;
 }
-#swagger .close-modal, #swagger .close-modal:active, #swagger .close-modal:hover, #swagger .close-modal:focus,
-#swagger .authorization__btn.unlocked,
-#swagger .authorization__btn.unlocked:active,
-#swagger .authorization__btn.unlocked:hover,
-#swagger .authorization__btn.unlocked:focus {
+#swagger button span + svg {
+	font-size: var(--font-size);
+	margin-left: 0.5em;
+}
+#swagger .opblock-tag {
+	font-size: var(--font-size);
+	font-weight: normal;
+}
+#swagger .opblock-tag small {
+	font-size: 1em;
+}
+#swagger .opblock-tag .nostyle {
+	color: var(--color-black);
+	font-weight: bold;
+	text-decoration: none;
+}
+#swagger .opblock {
+	background-color: var(--color-endpoint-bg);
+	border: 1px solid var(--color-endpoint-border);
+	color: var(--color-endpoint-text);
+	margin-bottom: 1em;
+	padding: 0.5em;
+	position: relative;
+}
+#swagger .opblock .nostyle {
+	color: var(--color-black);
+	font-family: var(--font-monospace);
+	margin-right: 0.8125em;
+	text-decoration: none;
+}
+#swagger .opblock .nostyle:active, #swagger .opblock .nostyle:hover {
+	text-decoration: underline;
+}
+#swagger .opblock .opblock-summary-method {
+	background-color: var(--color-method-bg);
+	border-radius: 0.25em;
+	color: var(--color-method-text);
+	display: inline-block;
+	font-family: var(--font-monospace);
+	margin-right: 0.5em;
+	padding: 0.25em 0.5em;
+	text-align: center;
+	width: 4.5em;
+}
+#swagger .opblock .authorization__btn {
 	background-color: transparent;
 	border: none;
 	color: var(--color-black);
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
 }
-#swagger .close-modal:active,
-#swagger .authorization__btn.unlocked:active {
-	box-shadow: unset;
-}
-#swagger .authorization__btn.unlocked {
-	margin-top: 0.25em;
-	opacity: 1;
-}
-#swagger .opblock-tag-section {
-	display: block;
-}
-#swagger .opblock-tag {
-	display: block;
-	border-bottom: none;
-}
-#swagger .opblock-tag:hover {
+#swagger .opblock .authorization__btn:active, #swagger .opblock .authorization__btn:hover {
 	background-color: transparent;
+	border: none;
+	color: var(--color-gray-dark);
 }
-#swagger .opblock-tag > a {
-	color: var(--color-black);
-	text-decoration: none;
+#swagger .opblock .authorization__btn:active {
+	box-shadow: none;
 }
-#swagger .opblock-tag small {
-	font-size: 0.625em;
-	text-transform: none;
-	padding: 0;
+#swagger .opblock-summary {
+	padding-right: 1em;
 }
-#swagger .opblock-tag .markdown p {
-	margin: 0;
-}
-#swagger .expand-operation {
-	display: none !important;
-}
-#swagger .opblock * {
-	font-size: inherit;
-}
-#swagger .opblock * .opblock-summary-method {
-	height: unset;
-	left: unset;
-	min-width: 4.5em;
-	padding: unset;
+#swagger .opblock-summary-description {
+	display: inline-block;
 }
 #swagger .opblock-get {
 	background-color: var(--color-get-bg);
@@ -1103,6 +1090,25 @@ td {
 }
 #swagger .opblock-deprecated .opblock-summary-method {
 	background-color: var(--color-gray-darker);
+}
+#swagger .models {
+	border: 1px solid var(--color-gray-dark);
+	padding: 1em;
+}
+#swagger .models h4 {
+	margin-bottom: 0;
+	padding-top: 0;
+}
+#swagger .models h4 svg {
+	float: right;
+	height: 1em;
+	width: 1em;
+}
+#swagger .model-box > {
+	background-color: var(--color-gray-lighter);
+	display: block;
+	margin-top: 0.5em;
+	padding: 0.25em;
 }
 
 /**
@@ -1313,7 +1319,7 @@ td {
 /**
  * Text colors
  */
-.text-muted, #swagger .opblock-tag small {
+.text-muted {
 	color: var(--color-gray-dark);
 }
 
