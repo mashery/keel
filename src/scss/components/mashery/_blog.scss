@@ -1,0 +1,44 @@
+/**
+ * @section Blog
+ * Overrides typography on blog pages
+ */
+
+
+.page-blog {
+
+	.rss {
+		display: none;
+	}
+
+	.section-meta ul,
+	.section-menu ul {
+		@extend .list-inline;
+		color: var(--color-gray-dark);
+	}
+
+	.section h2 {
+		margin-bottom: 0.25em;
+	}
+
+	.comments legend {
+		@extend .h3;
+	}
+
+	ol.comments {
+		@extend .list-unstyled;
+	}
+
+	.comment-meta {
+		color: var(--color-gray-dark);
+		margin-bottom: 0.25em;
+	}
+
+	.edit-comment {
+		margin-left: 1em;
+	}
+
+	.comment-count {
+		display: none;
+	}
+
+}
