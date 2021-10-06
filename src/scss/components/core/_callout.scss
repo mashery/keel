@@ -1,0 +1,11 @@
+/**
+ * @section Callout
+ * Styling for callout boxes
+ */
+
+.callout {
+    background-color: var(--color-gray-lighter);
+    border: 1px solid var(--color-gray-light);
+    margin-bottom: var(--spacing);
+    padding: 1em;
+}

@@ -34,10 +34,7 @@
 	}
 
 	ol.topics .topic {
-		background-color: var(--color-gray-lighter);
-		border: 1px solid var(--color-gray-light);
-		margin-bottom: var(--spacing);
-		padding: 1em;
+		@extend .callout;
 
 		& > ul {
 			@extend .list-unstyled;
@@ -81,6 +78,46 @@
 				text-align: right;
 			}
 		}
+	}
+
+	ol.comments {
+		@extend .list-unstyled;
+
+		& > li {
+			@extend .callout;
+		}
+
+		.comment-meta {
+			@extend .list-inline;
+
+			.user-reference {
+				font-weight: bold;
+			}
+
+			.timestamp {
+				font-style: italic;
+			}
+		}
+
+		.edit-timestamp {
+			font-style: italic;
+		}
+	}
+
+	.comment-tags > ul {
+		@extend .list-inline;
+	}
+
+	div.comments {
+		margin-top: var(--spacing);
+	}
+
+	.comments legend {
+		@extend .h3;
+	}
+
+	dd {
+		margin-bottom: unset;
 	}
 
 }
