@@ -17,7 +17,8 @@
 	@extend .container-small;
 }
 
-.page-ioDocs .content {
+.page-ioDocs .content,
+.page-login .content {
 	@extend .container-large;
 }
 
@@ -34,6 +35,22 @@
 
 		.main { grid-area: 1 / 1 / 2 / 2; }
 		.sub { grid-area: 1 / 2 / 2 / 3; }
+	}
+}
+
+// Signin page
+.page-login {
+	@media (min-width: $bp-large) {
+		.signin_member_mashery {
+			display: grid;
+			grid-template-columns: 3fr 2fr;
+			grid-template-rows: 1fr;
+			grid-column-gap: 3em;
+			grid-row-gap: 1em;
+		}
+
+		.signin { grid-area: 1 / 1 / 2 / 2; }
+		.options { grid-area: 1 / 2 / 2 / 3; }
 	}
 }
 

@@ -20,10 +20,6 @@
 		margin-bottom: 0.25em;
 	}
 
-	.comments legend {
-		@extend .h3;
-	}
-
 	ol.comments {
 		@extend .list-unstyled;
 	}

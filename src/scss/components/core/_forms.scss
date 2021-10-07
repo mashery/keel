@@ -20,6 +20,10 @@ label {
 	padding: 0;
 }
 
+legend {
+	@extend .h3;
+}
+
 /**
  * 1. Correct font properties not being inherited.
  * 2. Address margins set differently in Firefox 4+, Safari, and Chrome.
@@ -113,4 +117,39 @@ textarea:focus {
 // Submit inputs
 [type="submit"] {
 	@extend .input-inline;
+}
+
+
+/**
+ * Password requirements
+ */
+ul.requirements {
+	margin-left: 1em;
+
+	ul.requirements {
+		margin-left: 2em;
+	}
+
+	li::marker {
+		content: "× ";
+	}
+
+	li.valid {
+		color: var(--color-post);
+
+		&::marker {
+			content: "✓ ";
+		}
+	}
+}
+
+/**
+ * Description fields
+ */
+form .descr {
+	font-weight: normal;
+
+	p {
+		margin: 0;
+	}
 }

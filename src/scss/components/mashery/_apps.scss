@@ -1,0 +1,29 @@
+/**
+ * @section Apps & Member
+ * Overrides typography on apps and member pages
+ */
+
+
+.page-apps,
+.page-member {
+
+	.main .navigation ul,
+	.main .actions ul,
+	&.register .section-body table ul {
+		@extend .list-inline;
+
+		a {
+			@extend .link-no-underline;
+		}
+
+		.active a {
+			color: var(--color-black);
+			font-weight: bold;
+		}
+	}
+
+	.process-1 {
+		@extend .btn-transparent;
+	}
+
+}

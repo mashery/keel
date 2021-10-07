@@ -190,7 +190,8 @@ audio {
 	max-width: var(--container-small-max-width);
 }
 
-.container-large, .page-ioDocs .content {
+.container-large, .page-ioDocs .content,
+.page-login .content {
 	max-width: var(--container-max-width);
 }
 
@@ -284,13 +285,25 @@ a:active, a:hover {
 	color: var(--color-primary-shade);
 }
 
-.link-no-underline, .nav-secondary-list a, .nav-main-list a,
-.nav-user-list a, .page-forum ol.topics .topic .subject a, .page-forum ol.categories .category .subject a {
+.link-no-underline, .page-apps .main .navigation ul a,
+.page-apps .main .actions ul a, .page-apps.register .section-body table ul a,
+.page-member .main .navigation ul a,
+.page-member .main .actions ul a,
+.page-member.register .section-body table ul a, .page-forum ol.topics .topic .subject a, .page-forum ol.categories .category .subject a, .nav-secondary-list a, .nav-main-list a,
+.nav-user-list a {
 	text-decoration: none;
 }
-.link-no-underline:active, .nav-secondary-list a:active, .nav-main-list a:active,
-.nav-user-list a:active, .page-forum ol.topics .topic .subject a:active, .page-forum ol.categories .category .subject a:active, .link-no-underline:hover, .nav-secondary-list a:hover, .nav-main-list a:hover,
-.nav-user-list a:hover, .page-forum ol.topics .topic .subject a:hover, .page-forum ol.categories .category .subject a:hover {
+.link-no-underline:active, .page-apps .main .navigation ul a:active,
+.page-apps .main .actions ul a:active, .page-apps.register .section-body table ul a:active,
+.page-member .main .navigation ul a:active,
+.page-member .main .actions ul a:active,
+.page-member.register .section-body table ul a:active, .page-forum ol.topics .topic .subject a:active, .page-forum ol.categories .category .subject a:active, .nav-secondary-list a:active, .nav-main-list a:active,
+.nav-user-list a:active, .link-no-underline:hover, .page-apps .main .navigation ul a:hover,
+.page-apps .main .actions ul a:hover, .page-apps.register .section-body table ul a:hover,
+.page-member .main .navigation ul a:hover,
+.page-member .main .actions ul a:hover,
+.page-member.register .section-body table ul a:hover, .page-forum ol.topics .topic .subject a:hover, .page-forum ol.categories .category .subject a:hover, .nav-secondary-list a:hover, .nav-main-list a:hover,
+.nav-user-list a:hover {
 	text-decoration: underline;
 }
 
@@ -349,17 +362,25 @@ dt {
  * 1. Add a non-breaking space
  * 2. Make sure it doesn't mess up the DOM flow
  */
-.list-nav, .list-inline, .nav-secondary-list, .nav-main-list,
-.nav-user-list, .page-forum .comment-tags > ul, .page-forum ol.comments .comment-meta, .page-forum .breadcrumbs, .page-blog .section-meta ul,
-.page-blog .section-menu ul, .list-unstyled, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-forum ol.categories .category > ul, .page-forum ol.categories, .page-blog ol.comments, .page-page .section-menu ul,
+.list-nav, .list-inline, .page-apps .main .navigation ul,
+.page-apps .main .actions ul, .page-apps.register .section-body table ul,
+.page-member .main .navigation ul,
+.page-member .main .actions ul,
+.page-member.register .section-body table ul, .page-forum .comment-tags > ul, .page-forum ol.comments .comment-meta, .page-forum .breadcrumbs, .page-blog .section-meta ul,
+.page-blog .section-menu ul, .nav-secondary-list, .nav-main-list,
+.nav-user-list, .list-unstyled, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-forum ol.categories .category > ul, .page-forum ol.categories, .page-blog ol.comments, .page-page .section-menu ul,
 .page-docs .section-menu ul, .page-ioDocs .endpointList,
 .page-ioDocs .methods {
 	list-style: none;
 	margin-left: 0;
 }
-.list-nav > li::before, .list-inline > li::before, .nav-secondary-list > li::before, .nav-main-list > li::before,
-.nav-user-list > li::before, .page-forum .comment-tags > ul > li::before, .page-forum ol.comments .comment-meta > li::before, .page-forum .breadcrumbs > li::before, .page-blog .section-meta ul > li::before,
-.page-blog .section-menu ul > li::before, .list-unstyled > li::before, .page-forum ol.comments > li::before, .page-forum ol.topics .topic > ul > li::before, .page-forum ol.topics > li::before, .page-forum ol.categories .category > ul > li::before, .page-forum ol.categories > li::before, .page-blog ol.comments > li::before, .page-page .section-menu ul > li::before,
+.list-nav > li::before, .list-inline > li::before, .page-apps .main .navigation ul > li::before,
+.page-apps .main .actions ul > li::before, .page-apps.register .section-body table ul > li::before,
+.page-member .main .navigation ul > li::before,
+.page-member .main .actions ul > li::before,
+.page-member.register .section-body table ul > li::before, .page-forum .comment-tags > ul > li::before, .page-forum ol.comments .comment-meta > li::before, .page-forum .breadcrumbs > li::before, .page-blog .section-meta ul > li::before,
+.page-blog .section-menu ul > li::before, .nav-secondary-list > li::before, .nav-main-list > li::before,
+.nav-user-list > li::before, .list-unstyled > li::before, .page-forum ol.comments > li::before, .page-forum ol.topics .topic > ul > li::before, .page-forum ol.topics > li::before, .page-forum ol.categories .category > ul > li::before, .page-forum ol.categories > li::before, .page-blog ol.comments > li::before, .page-page .section-menu ul > li::before,
 .page-docs .section-menu ul > li::before, .page-ioDocs .endpointList > li::before,
 .page-ioDocs .methods > li::before {
 	content: "​";
@@ -381,19 +402,31 @@ dt {
 /**
  * Display lists on a single line.
  */
-.list-inline, .nav-secondary-list, .nav-main-list,
-.nav-user-list, .page-forum .comment-tags > ul, .page-forum ol.comments .comment-meta, .page-forum .breadcrumbs, .page-blog .section-meta ul,
-.page-blog .section-menu ul {
+.list-inline, .page-apps .main .navigation ul,
+.page-apps .main .actions ul, .page-apps.register .section-body table ul,
+.page-member .main .navigation ul,
+.page-member .main .actions ul,
+.page-member.register .section-body table ul, .page-forum .comment-tags > ul, .page-forum ol.comments .comment-meta, .page-forum .breadcrumbs, .page-blog .section-meta ul,
+.page-blog .section-menu ul, .nav-secondary-list, .nav-main-list,
+.nav-user-list {
 	display: flex;
 }
-.list-inline > li, .nav-secondary-list > li, .nav-main-list > li,
-.nav-user-list > li, .page-forum .comment-tags > ul > li, .page-forum ol.comments .comment-meta > li, .page-forum .breadcrumbs > li, .page-blog .section-meta ul > li,
-.page-blog .section-menu ul > li {
+.list-inline > li, .page-apps .main .navigation ul > li,
+.page-apps .main .actions ul > li, .page-apps.register .section-body table ul > li,
+.page-member .main .navigation ul > li,
+.page-member .main .actions ul > li,
+.page-member.register .section-body table ul > li, .page-forum .comment-tags > ul > li, .page-forum ol.comments .comment-meta > li, .page-forum .breadcrumbs > li, .page-blog .section-meta ul > li,
+.page-blog .section-menu ul > li, .nav-secondary-list > li, .nav-main-list > li,
+.nav-user-list > li {
 	margin: 0 0.5em;
 }
-.list-inline > li:first-child, .nav-secondary-list > li:first-child, .nav-main-list > li:first-child,
-.nav-user-list > li:first-child, .page-forum .comment-tags > ul > li:first-child, .page-forum ol.comments .comment-meta > li:first-child, .page-forum .breadcrumbs > li:first-child, .page-blog .section-meta ul > li:first-child,
-.page-blog .section-menu ul > li:first-child {
+.list-inline > li:first-child, .page-apps .main .navigation ul > li:first-child,
+.page-apps .main .actions ul > li:first-child, .page-apps.register .section-body table ul > li:first-child,
+.page-member .main .navigation ul > li:first-child,
+.page-member .main .actions ul > li:first-child,
+.page-member.register .section-body table ul > li:first-child, .page-forum .comment-tags > ul > li:first-child, .page-forum ol.comments .comment-meta > li:first-child, .page-forum .breadcrumbs > li:first-child, .page-blog .section-meta ul > li:first-child,
+.page-blog .section-menu ul > li:first-child, .nav-secondary-list > li:first-child, .nav-main-list > li:first-child,
+.nav-user-list > li:first-child {
 	margin-left: 0;
 }
 
@@ -433,10 +466,9 @@ h2,
 
 h3,
 .h3,
-.page-forum .comments legend,
-.page-blog .comments legend,
 #swagger .models h4,
-#swagger .opblock-tag .nostyle {
+#swagger .opblock-tag .nostyle,
+legend {
 	font-size: 1.1875em;
 }
 
@@ -571,12 +603,15 @@ a[type=submit] {
 /**
  * Tertiary buttons
  */
-.btn-transparent {
+.btn-transparent, .page-apps .process-1,
+.page-member .process-1 {
 	background-color: var(--color-btn-transparent-bg);
 	border-color: var(--color-btn-transparent-border);
 	color: var(--color-btn-transparent-text);
 }
-.btn-transparent:hover, .btn-transparent:active {
+.btn-transparent:hover, .page-apps .process-1:hover,
+.page-member .process-1:hover, .btn-transparent:active, .page-apps .process-1:active,
+.page-member .process-1:active {
 	background-color: var(--color-btn-primary-bg);
 	border-color: var(--color-btn-primary-bg);
 	color: var(--color-btn-primary-text);
@@ -776,6 +811,35 @@ textarea:focus {
 }
 
 /**
+ * Password requirements
+ */
+ul.requirements {
+	margin-left: 1em;
+}
+ul.requirements ul.requirements {
+	margin-left: 2em;
+}
+ul.requirements li::marker {
+	content: "× ";
+}
+ul.requirements li.valid {
+	color: var(--color-post);
+}
+ul.requirements li.valid::marker {
+	content: "✓ ";
+}
+
+/**
+ * Description fields
+ */
+form .descr {
+	font-weight: normal;
+}
+form .descr p {
+	margin: 0;
+}
+
+/**
  * @section Form Validation
  * Styling for form validation
  */
@@ -863,6 +927,159 @@ td {
 	border: 1px solid var(--color-gray-light);
 	margin-bottom: var(--spacing);
 	padding: 1em;
+}
+
+/**
+ * @section Base Layout
+ * Shared layout features across all themes
+ */
+/**
+ * Layout & Grid
+ */
+@media (min-width: 60em) {
+	.has-sidebar .content {
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+		grid-template-rows: 1fr;
+		grid-column-gap: 3em;
+		grid-row-gap: 1em;
+	}
+	.has-sidebar .main {
+		grid-area: 1/1/2/2;
+	}
+	.has-sidebar .sub {
+		grid-area: 1/2/2/3;
+	}
+}
+
+@media (min-width: 60em) {
+	.page-login .signin_member_mashery {
+		display: grid;
+		grid-template-columns: 3fr 2fr;
+		grid-template-rows: 1fr;
+		grid-column-gap: 3em;
+		grid-row-gap: 1em;
+	}
+	.page-login .signin {
+		grid-area: 1/1/2/2;
+	}
+	.page-login .options {
+		grid-area: 1/2/2/3;
+	}
+}
+
+@media (min-width: 60em) {
+	.has-sidebar .page-docs .content {
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+		grid-template-rows: 1fr;
+		grid-column-gap: 2em;
+		grid-row-gap: 1em;
+	}
+	.has-sidebar .page-docs .main {
+		grid-area: 1/2/2/3;
+	}
+	.has-sidebar .page-docs .sub {
+		grid-area: 1/1/2/2;
+	}
+}
+
+.main {
+	min-height: 70vh;
+}
+
+/**
+ * Typography
+ */
+.sub h2 {
+	padding-top: 1.5em;
+}
+
+.nav-user-wrapper,
+.nav-main-wrapper {
+	padding: 0.25em 0;
+}
+
+/**
+ * Header
+ */
+.header-wrapper {
+	background-color: var(--color-header-nav-bg);
+	border-bottom: 1px solid var(--color-header-border);
+}
+
+.nav-logo {
+	color: var(--color-logo-link);
+	font-weight: bold;
+}
+.nav-logo:active, .nav-logo:hover {
+	color: var(--color-logo-link-hover);
+}
+
+.nav-main-wrapper {
+	background-color: var(--color-nav-main-bg);
+}
+.nav-main-wrapper a {
+	color: var(--color-nav-main-link);
+}
+.nav-main-wrapper a:active, .nav-main-wrapper a:hover {
+	color: var(--color-nav-main-link-hover);
+}
+
+.nav-user-wrapper {
+	background-color: var(--color-nav-user-bg);
+}
+.nav-user-wrapper a {
+	color: var(--color-nav-user-link);
+}
+.nav-user-wrapper a:active, .nav-user-wrapper a:hover {
+	color: var(--color-nav-user-link-hover);
+}
+
+.nav-main-list,
+.nav-user-list {
+	margin-bottom: 0;
+}
+/**
+ * Footer
+ */
+.footer-wrapper {
+	background-color: var(--color-footer-bg);
+	color: var(--color-footer-text);
+	margin-top: 2em;
+	padding-top: 2em;
+}
+.footer-wrapper a {
+	color: var(--color-footer-link);
+}
+.footer-wrapper a:active, .footer-wrapper a:hover {
+	color: var(--color-footer-link-hover);
+}
+
+/**
+ * Search
+ */
+#search-box {
+	float: left;
+	margin-bottom: 0;
+	padding-right: 2.25em;
+}
+
+.btn-nav-search {
+	background-color: transparent;
+	border: none;
+	color: var(--color-form-text);
+	margin-left: -2em;
+}
+.btn-nav-search:active, .btn-nav-search:hover {
+	background-color: transparent;
+	color: var(--color-text);
+}
+
+.header-wrapper a:active, .header-wrapper a:hover,
+.footer-wrapper a:active,
+.footer-wrapper a:hover {
+	filter: brightness(1);
 }
 
 /**
@@ -1353,142 +1570,17 @@ td {
 }
 
 /**
- * @section Base Layout
- * Shared layout features across all themes
+ * @section Apps & Member
+ * Overrides typography on apps and member pages
  */
-/**
- * Layout & Grid
- */
-@media (min-width: 60em) {
-	.has-sidebar .content {
-		display: grid;
-		grid-template-columns: 3fr 1fr;
-		grid-template-rows: 1fr;
-		grid-column-gap: 3em;
-		grid-row-gap: 1em;
-	}
-	.has-sidebar .main {
-		grid-area: 1/1/2/2;
-	}
-	.has-sidebar .sub {
-		grid-area: 1/2/2/3;
-	}
-}
-
-@media (min-width: 60em) {
-	.has-sidebar .page-docs .content {
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		grid-template-rows: 1fr;
-		grid-column-gap: 2em;
-		grid-row-gap: 1em;
-	}
-	.has-sidebar .page-docs .main {
-		grid-area: 1/2/2/3;
-	}
-	.has-sidebar .page-docs .sub {
-		grid-area: 1/1/2/2;
-	}
-}
-
-.main {
-	min-height: 70vh;
-}
-
-/**
- * Typography
- */
-.sub h2 {
-	padding-top: 1.5em;
-}
-
-.nav-user-wrapper,
-.nav-main-wrapper {
-	padding: 0.25em 0;
-}
-
-/**
- * Header
- */
-.header-wrapper {
-	background-color: var(--color-header-nav-bg);
-	border-bottom: 1px solid var(--color-header-border);
-}
-
-.nav-logo {
-	color: var(--color-logo-link);
+.page-apps .main .navigation ul .active a,
+.page-apps .main .actions ul .active a, .page-apps.register .section-body table ul .active a,
+.page-member .main .navigation ul .active a,
+.page-member .main .actions ul .active a,
+.page-member.register .section-body table ul .active a {
+	color: var(--color-black);
 	font-weight: bold;
 }
-.nav-logo:active, .nav-logo:hover {
-	color: var(--color-logo-link-hover);
-}
-
-.nav-main-wrapper {
-	background-color: var(--color-nav-main-bg);
-}
-.nav-main-wrapper a {
-	color: var(--color-nav-main-link);
-}
-.nav-main-wrapper a:active, .nav-main-wrapper a:hover {
-	color: var(--color-nav-main-link-hover);
-}
-
-.nav-user-wrapper {
-	background-color: var(--color-nav-user-bg);
-}
-.nav-user-wrapper a {
-	color: var(--color-nav-user-link);
-}
-.nav-user-wrapper a:active, .nav-user-wrapper a:hover {
-	color: var(--color-nav-user-link-hover);
-}
-
-.nav-main-list,
-.nav-user-list {
-	margin-bottom: 0;
-}
-/**
- * Footer
- */
-.footer-wrapper {
-	background-color: var(--color-footer-bg);
-	color: var(--color-footer-text);
-	margin-top: 2em;
-	padding-top: 2em;
-}
-.footer-wrapper a {
-	color: var(--color-footer-link);
-}
-.footer-wrapper a:active, .footer-wrapper a:hover {
-	color: var(--color-footer-link-hover);
-}
-
-/**
- * Search
- */
-#search-box {
-	float: left;
-	margin-bottom: 0;
-	padding-right: 2.25em;
-}
-
-.btn-nav-search {
-	background-color: transparent;
-	border: none;
-	color: var(--color-form-text);
-	margin-left: -2em;
-}
-.btn-nav-search:active, .btn-nav-search:hover {
-	background-color: transparent;
-	color: var(--color-text);
-}
-
-.header-wrapper a:active, .header-wrapper a:hover,
-.footer-wrapper a:active,
-.footer-wrapper a:hover {
-	filter: brightness(1);
-}
-
 /**
  * @section Default Theme
  */
