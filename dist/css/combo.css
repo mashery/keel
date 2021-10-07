@@ -285,12 +285,12 @@ a:active, a:hover {
 }
 
 .link-no-underline, .nav-secondary-list a, .nav-main-list a,
-.nav-user-list a, .page-forum ol.topics .topic .subject a {
+.nav-user-list a, .page-forum ol.topics .topic .subject a, .page-forum ol.categories .category .subject a {
 	text-decoration: none;
 }
 .link-no-underline:active, .nav-secondary-list a:active, .nav-main-list a:active,
-.nav-user-list a:active, .page-forum ol.topics .topic .subject a:active, .link-no-underline:hover, .nav-secondary-list a:hover, .nav-main-list a:hover,
-.nav-user-list a:hover, .page-forum ol.topics .topic .subject a:hover {
+.nav-user-list a:active, .page-forum ol.topics .topic .subject a:active, .page-forum ol.categories .category .subject a:active, .link-no-underline:hover, .nav-secondary-list a:hover, .nav-main-list a:hover,
+.nav-user-list a:hover, .page-forum ol.topics .topic .subject a:hover, .page-forum ol.categories .category .subject a:hover {
 	text-decoration: underline;
 }
 
@@ -351,7 +351,7 @@ dt {
  */
 .list-nav, .list-inline, .nav-secondary-list, .nav-main-list,
 .nav-user-list, .page-forum .comment-tags > ul, .page-forum ol.comments .comment-meta, .page-forum .breadcrumbs, .page-blog .section-meta ul,
-.page-blog .section-menu ul, .list-unstyled, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-blog ol.comments, .page-page .section-menu ul,
+.page-blog .section-menu ul, .list-unstyled, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-forum ol.categories .category > ul, .page-forum ol.categories, .page-blog ol.comments, .page-page .section-menu ul,
 .page-docs .section-menu ul, .page-ioDocs .endpointList,
 .page-ioDocs .methods {
 	list-style: none;
@@ -359,7 +359,7 @@ dt {
 }
 .list-nav > li::before, .list-inline > li::before, .nav-secondary-list > li::before, .nav-main-list > li::before,
 .nav-user-list > li::before, .page-forum .comment-tags > ul > li::before, .page-forum ol.comments .comment-meta > li::before, .page-forum .breadcrumbs > li::before, .page-blog .section-meta ul > li::before,
-.page-blog .section-menu ul > li::before, .list-unstyled > li::before, .page-forum ol.comments > li::before, .page-forum ol.topics .topic > ul > li::before, .page-forum ol.topics > li::before, .page-blog ol.comments > li::before, .page-page .section-menu ul > li::before,
+.page-blog .section-menu ul > li::before, .list-unstyled > li::before, .page-forum ol.comments > li::before, .page-forum ol.topics .topic > ul > li::before, .page-forum ol.topics > li::before, .page-forum ol.categories .category > ul > li::before, .page-forum ol.categories > li::before, .page-blog ol.comments > li::before, .page-page .section-menu ul > li::before,
 .page-docs .section-menu ul > li::before, .page-ioDocs .endpointList > li::before,
 .page-ioDocs .methods > li::before {
 	content: "​";
@@ -372,7 +372,7 @@ dt {
  * Removes list styling.
  * For semantic reasons, should only be used on unordered lists.
  */
-.list-unstyled, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-blog ol.comments, .page-page .section-menu ul,
+.list-unstyled, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-forum ol.categories .category > ul, .page-forum ol.categories, .page-blog ol.comments, .page-page .section-menu ul,
 .page-docs .section-menu ul, .page-ioDocs .endpointList,
 .page-ioDocs .methods {
 	margin-left: 0;
@@ -858,7 +858,7 @@ td {
  * @section Callout
  * Styling for callout boxes
  */
-.callout, .page-forum ol.comments > li, .page-forum ol.topics .topic {
+.callout, .page-forum ol.comments > li, .page-forum ol.topics .topic, .page-forum ol.categories .category {
 	background-color: var(--color-gray-lighter);
 	border: 1px solid var(--color-gray-light);
 	margin-bottom: var(--spacing);
@@ -1212,6 +1212,23 @@ td {
  * @section Forum
  * Overrides typography on forum pages
  */
+.page-forum {
+	/**
+	 * Forum Breadcrumbs
+	 */
+	/**
+	 * Forum Categories
+	 */
+	/**
+	 * Forum Topics
+	 */
+	/**
+	 * Forum Comments
+	 */
+	/**
+	 * Forum Miscellaneous
+	 */
+}
 .page-forum .section-menu,
 .page-forum .rss {
 	display: none;
@@ -1223,8 +1240,57 @@ td {
 	content: " > ";
 	margin-left: -1.1875em;
 }
-.page-forum .create-new {
-	margin-bottom: var(--spacing);
+.page-forum ol.categories .category .subject {
+	font-weight: bold;
+}
+.page-forum ol.categories .category .description {
+	font-style: italic;
+}
+.page-forum ol.categories .category .topic-count span,
+.page-forum ol.categories .category .comment-count span {
+	font-weight: bold;
+}
+.page-forum ol.categories .category .topic-count span:after,
+.page-forum ol.categories .category .comment-count span:after {
+	content: ": ";
+}
+@media (min-width: 40em) {
+	.page-forum ol.categories .category > ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		grid-column-gap: 0.5em;
+		grid-row-gap: 0;
+	}
+	.page-forum ol.categories .category .subject {
+		grid-area: 1/1/2/2;
+	}
+	.page-forum ol.categories .category .description {
+		grid-area: 1/2/2/4;
+	}
+	.page-forum ol.categories .category .topic-count {
+		grid-area: 2/1/3/2;
+	}
+	.page-forum ol.categories .category .comment-count {
+		grid-area: 2/3/3/4;
+	}
+	.page-forum ol.categories .category .last-comment {
+		grid-area: 3/1/4/2;
+	}
+	.page-forum ol.categories .category .last-active {
+		grid-area: 3/2/4/3;
+	}
+	.page-forum ol.categories .category .last-topic {
+		grid-area: 3/3/4/4;
+	}
+	.page-forum ol.categories .category .description,
+.page-forum ol.categories .category .comment-count,
+.page-forum ol.categories .category .last-topic {
+		text-align: right;
+	}
+	.page-forum ol.categories .category .last-active {
+		text-align: center;
+	}
 }
 .page-forum ol.topics .topic .subject {
 	font-weight: bold;
@@ -1281,6 +1347,9 @@ td {
 }
 .page-forum dd {
 	margin-bottom: unset;
+}
+.page-forum .create-new {
+	margin-bottom: var(--spacing);
 }
 
 /**

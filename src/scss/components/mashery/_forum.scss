@@ -11,6 +11,9 @@
 		display: none;
 	}
 
+	/**
+	 * Forum Breadcrumbs
+	 */
 	.breadcrumbs {
 		@extend .list-inline;
 
@@ -24,62 +27,130 @@
 		}
 	}
 
+
+	/**
+	 * Forum Categories
+	 */
+	ol.categories {
+		@extend .list-unstyled;
+
+		.category {
+			@extend .callout;
+
+			& > ul {
+				@extend .list-unstyled;
+			}
+
+			.subject {
+				font-weight: bold;
+
+				a {
+					@extend .link-no-underline;
+				}
+			}
+
+			.description {
+				font-style: italic;
+			}
+
+			.topic-count span,
+			.comment-count span {
+				font-weight: bold;
+
+				&:after {
+					content: ": "
+				}
+			}
+
+			@media (min-width: $bp-medium) {
+				& > ul {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					grid-template-rows: repeat(3, 1fr);
+					grid-column-gap: 0.5em;
+					grid-row-gap: 0;
+				}
+
+				.subject { grid-area: 1 / 1 / 2 / 2; }
+				.description { grid-area: 1 / 2 / 2 / 4; }
+				.topic-count { grid-area: 2 / 1 / 3 / 2; }
+				.comment-count { grid-area: 2 / 3 / 3 / 4; }
+				.last-comment { grid-area: 3 / 1 / 4 / 2; }
+				.last-active { grid-area: 3 / 2 / 4 / 3; }
+				.last-topic { grid-area: 3 / 3 / 4 / 4; }
+
+				.description,
+				.comment-count,
+				.last-topic {
+					text-align: right;
+				}
+
+				.last-active {
+					text-align: center;
+				}
+			}
+		}
+	}
+
+
+	/**
+	 * Forum Topics
+	 */
 	ol.topics {
 		@extend .list-unstyled;
-	}
 
-	.create-new {
-		@extend .btn;
-		margin-bottom: var(--spacing);
-	}
+		.topic {
+			@extend .callout;
 
-	ol.topics .topic {
-		@extend .callout;
-
-		& > ul {
-			@extend .list-unstyled;
-		}
-
-		.subject {
-			font-weight: bold;
-
-			a {
-				@extend .link-no-underline;
-			}
-		}
-
-		.comment-count span {
-			font-weight: bold;
-
-			&:after {
-				content: ": "
-			}
-		}
-
-		@media (min-width: $bp-medium) {
 			& > ul {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				grid-template-rows: repeat(3, 1fr);
-				grid-column-gap: 0.5em;
-				grid-row-gap: 0;
+				@extend .list-unstyled;
 			}
 
-			.subject { grid-area: 1 / 1 / 2 / 3; }
-			.edit-topic { grid-area: 1 / 3 / 2 / 4; }
-			.moniker { grid-area: 2 / 1 / 3 / 3; }
-			.comment-count { grid-area: 2 / 3 / 3 / 4; }
-			.last-comment { grid-area: 3 / 1 / 4 / 3; }
-			.last-active { grid-area: 3 / 3 / 4 / 4; }
+			.subject {
+				font-weight: bold;
 
-			.edit-topic,
-			.comment-count,
-			.last-active {
-				text-align: right;
+				a {
+					@extend .link-no-underline;
+				}
+			}
+
+			.comment-count span {
+				font-weight: bold;
+
+				&:after {
+					content: ": "
+				}
+			}
+
+			@media (min-width: $bp-medium) {
+				& > ul {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					grid-template-rows: repeat(3, 1fr);
+					grid-column-gap: 0.5em;
+					grid-row-gap: 0;
+				}
+
+				.subject { grid-area: 1 / 1 / 2 / 3; }
+				.edit-topic { grid-area: 1 / 3 / 2 / 4; }
+				.moniker { grid-area: 2 / 1 / 3 / 3; }
+				.comment-count { grid-area: 2 / 3 / 3 / 4; }
+				.last-comment { grid-area: 3 / 1 / 4 / 3; }
+				.last-active { grid-area: 3 / 3 / 4 / 4; }
+
+				.edit-topic,
+				.comment-count,
+				.last-active {
+					text-align: right;
+				}
 			}
 		}
 	}
 
+
+	/**
+	 * Forum Comments
+	 */
 	ol.comments {
 		@extend .list-unstyled;
 
@@ -116,8 +187,18 @@
 		@extend .h3;
 	}
 
+
+	/**
+	 * Forum Miscellaneous
+	 */
+
 	dd {
 		margin-bottom: unset;
+	}
+
+	.create-new {
+		@extend .btn;
+		margin-bottom: var(--spacing);
 	}
 
 }
