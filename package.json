@@ -1,6 +1,6 @@
 {
     "name": "keel",
-    "version": "1.0.0",
+    "version": "0.0.6",
     "description": "A templating engine for the Mashery SaaS portal.",
     "author": {
         "name": "TIBCO",
