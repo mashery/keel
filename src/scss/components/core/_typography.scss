@@ -125,28 +125,14 @@ dt {
 
 /**
  * Display lists on a single line.
+ * min() with 100% prevents overflow in extra narrow spaces
  */
 
 .list-inline {
 	@extend %list-style-none;
 	display: flex;
-
-	& > li {
-		margin: 0 0.5em;
-	}
-
-	& > li:first-child {
-		margin-left: 0;
-	}
-}
-
-.list-nav {
-	@extend %list-style-none;
-	display: flex;
-
-	& > li > a {
-		padding: 0 0.5em;
-	}
+	flex-wrap: wrap;
+	gap: 0 1em;
 }
 
 

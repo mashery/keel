@@ -1,4 +1,4 @@
-/*! keel - default v0.0.6 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
+/*! keel - default v0.0.7 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
 @charset "UTF-8";
 :root {
 	/**
@@ -363,7 +363,7 @@ dt {
  * 1. Add a non-breaking space
  * 2. Make sure it doesn't mess up the DOM flow
  */
-.list-nav, .list-inline, .page-logout .main ul, .page-key .main ul.nav, .page-apps .main .navigation ul,
+.list-inline, .page-logout .main ul, .page-key .main ul.nav, .page-apps .main .navigation ul,
 .page-apps .main .actions ul, .page-apps.register .section-body table ul,
 .page-member .main .navigation ul,
 .page-member .main .actions ul,
@@ -375,7 +375,7 @@ dt {
 	list-style: none;
 	margin-left: 0;
 }
-.list-nav > li::before, .list-inline > li::before, .page-logout .main ul > li::before, .page-key .main ul.nav > li::before, .page-apps .main .navigation ul > li::before,
+.list-inline > li::before, .page-logout .main ul > li::before, .page-key .main ul.nav > li::before, .page-apps .main .navigation ul > li::before,
 .page-apps .main .actions ul > li::before, .page-apps.register .section-body table ul > li::before,
 .page-member .main .navigation ul > li::before,
 .page-member .main .actions ul > li::before,
@@ -402,6 +402,7 @@ dt {
 
 /**
  * Display lists on a single line.
+ * min() with 100% prevents overflow in extra narrow spaces
  */
 .list-inline, .page-logout .main ul, .page-key .main ul.nav, .page-apps .main .navigation ul,
 .page-apps .main .actions ul, .page-apps.register .section-body table ul,
@@ -411,31 +412,8 @@ dt {
 .page-blog .section-menu ul, .nav-secondary-list, .nav-main-list,
 .nav-user-list {
 	display: flex;
-}
-.list-inline > li, .page-logout .main ul > li, .page-key .main ul.nav > li, .page-apps .main .navigation ul > li,
-.page-apps .main .actions ul > li, .page-apps.register .section-body table ul > li,
-.page-member .main .navigation ul > li,
-.page-member .main .actions ul > li,
-.page-member.register .section-body table ul > li, .page-forum .comment-tags > ul > li, .page-forum ol.comments .comment-meta > li, .page-forum .breadcrumbs > li, .page-blog .section-meta ul > li,
-.page-blog .section-menu ul > li, .nav-secondary-list > li, .nav-main-list > li,
-.nav-user-list > li {
-	margin: 0 0.5em;
-}
-.list-inline > li:first-child, .page-logout .main ul > li:first-child, .page-key .main ul.nav > li:first-child, .page-apps .main .navigation ul > li:first-child,
-.page-apps .main .actions ul > li:first-child, .page-apps.register .section-body table ul > li:first-child,
-.page-member .main .navigation ul > li:first-child,
-.page-member .main .actions ul > li:first-child,
-.page-member.register .section-body table ul > li:first-child, .page-forum .comment-tags > ul > li:first-child, .page-forum ol.comments .comment-meta > li:first-child, .page-forum .breadcrumbs > li:first-child, .page-blog .section-meta ul > li:first-child,
-.page-blog .section-menu ul > li:first-child, .nav-secondary-list > li:first-child, .nav-main-list > li:first-child,
-.nav-user-list > li:first-child {
-	margin-left: 0;
-}
-
-.list-nav {
-	display: flex;
-}
-.list-nav > li > a {
-	padding: 0 0.5em;
+	flex-wrap: wrap;
+	gap: 0 1em;
 }
 
 /**

@@ -1,4 +1,4 @@
-/*! keel v0.0.6 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
+/*! keel v0.0.7 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
 var keel = (function (exports) {
 	'use strict';
 
