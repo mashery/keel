@@ -1,0 +1,17 @@
+/**
+ * @section Apps & Member
+ * Overrides typography on apps and member pages
+ */
+
+
+.page-logout {
+
+	.main ul {
+		@extend .list-inline;
+
+		a {
+			@extend .btn;
+		}
+	}
+
+}

@@ -27,3 +27,20 @@
 	}
 
 }
+
+.application-actions a.action,
+.key-actions a.action,
+a.add-app.action {
+	@extend .btn;
+
+	&.delete,
+	&.delete-app {
+		@extend .btn-transparent;
+	}
+}
+
+#application-edit ul {
+	@extend .list-unstyled;
+	padding-left: var(--spacing);
+	padding-right: var(--spacing);
+}

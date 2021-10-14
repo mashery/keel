@@ -1,0 +1,39 @@
+/**
+ * @section Forms
+ * Shared form styling across all themes
+ */
+
+
+/**
+ * Password requirements
+ */
+ul.requirements {
+	margin-left: 1em;
+
+	ul.requirements {
+		margin-left: 2em;
+	}
+
+	li::marker {
+		color: var(--color-delete);
+		content: "× ";
+	}
+
+	li.valid {
+		&::marker {
+			color: var(--color-post);
+			content: "✓ ";
+		}
+	}
+}
+
+/**
+ * Description fields
+ */
+form .descr {
+	font-weight: normal;
+
+	p {
+		margin: 0;
+	}
+}

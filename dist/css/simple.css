@@ -285,7 +285,7 @@ a:active, a:hover {
 	color: var(--color-primary-shade);
 }
 
-.link-no-underline, .page-apps .main .navigation ul a,
+.link-no-underline, .page-key .main ul.nav a, .page-apps .main .navigation ul a,
 .page-apps .main .actions ul a, .page-apps.register .section-body table ul a,
 .page-member .main .navigation ul a,
 .page-member .main .actions ul a,
@@ -293,12 +293,12 @@ a:active, a:hover {
 .nav-user-list a {
 	text-decoration: none;
 }
-.link-no-underline:active, .page-apps .main .navigation ul a:active,
+.link-no-underline:active, .page-key .main ul.nav a:active, .page-apps .main .navigation ul a:active,
 .page-apps .main .actions ul a:active, .page-apps.register .section-body table ul a:active,
 .page-member .main .navigation ul a:active,
 .page-member .main .actions ul a:active,
 .page-member.register .section-body table ul a:active, .page-forum ol.topics .topic .subject a:active, .page-forum ol.categories .category .subject a:active, .nav-secondary-list a:active, .nav-main-list a:active,
-.nav-user-list a:active, .link-no-underline:hover, .page-apps .main .navigation ul a:hover,
+.nav-user-list a:active, .link-no-underline:hover, .page-key .main ul.nav a:hover, .page-apps .main .navigation ul a:hover,
 .page-apps .main .actions ul a:hover, .page-apps.register .section-body table ul a:hover,
 .page-member .main .navigation ul a:hover,
 .page-member .main .actions ul a:hover,
@@ -362,25 +362,25 @@ dt {
  * 1. Add a non-breaking space
  * 2. Make sure it doesn't mess up the DOM flow
  */
-.list-nav, .list-inline, .page-apps .main .navigation ul,
+.list-nav, .list-inline, .page-logout .main ul, .page-key .main ul.nav, .page-apps .main .navigation ul,
 .page-apps .main .actions ul, .page-apps.register .section-body table ul,
 .page-member .main .navigation ul,
 .page-member .main .actions ul,
 .page-member.register .section-body table ul, .page-forum .comment-tags > ul, .page-forum ol.comments .comment-meta, .page-forum .breadcrumbs, .page-blog .section-meta ul,
 .page-blog .section-menu ul, .nav-secondary-list, .nav-main-list,
-.nav-user-list, .list-unstyled, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-forum ol.categories .category > ul, .page-forum ol.categories, .page-blog ol.comments, .page-page .section-menu ul,
+.nav-user-list, .list-unstyled, #application-edit ul, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-forum ol.categories .category > ul, .page-forum ol.categories, .page-blog ol.comments, .page-page .section-menu ul,
 .page-docs .section-menu ul, .page-ioDocs .endpointList,
 .page-ioDocs .methods {
 	list-style: none;
 	margin-left: 0;
 }
-.list-nav > li::before, .list-inline > li::before, .page-apps .main .navigation ul > li::before,
+.list-nav > li::before, .list-inline > li::before, .page-logout .main ul > li::before, .page-key .main ul.nav > li::before, .page-apps .main .navigation ul > li::before,
 .page-apps .main .actions ul > li::before, .page-apps.register .section-body table ul > li::before,
 .page-member .main .navigation ul > li::before,
 .page-member .main .actions ul > li::before,
 .page-member.register .section-body table ul > li::before, .page-forum .comment-tags > ul > li::before, .page-forum ol.comments .comment-meta > li::before, .page-forum .breadcrumbs > li::before, .page-blog .section-meta ul > li::before,
 .page-blog .section-menu ul > li::before, .nav-secondary-list > li::before, .nav-main-list > li::before,
-.nav-user-list > li::before, .list-unstyled > li::before, .page-forum ol.comments > li::before, .page-forum ol.topics .topic > ul > li::before, .page-forum ol.topics > li::before, .page-forum ol.categories .category > ul > li::before, .page-forum ol.categories > li::before, .page-blog ol.comments > li::before, .page-page .section-menu ul > li::before,
+.nav-user-list > li::before, .list-unstyled > li::before, #application-edit ul > li::before, .page-forum ol.comments > li::before, .page-forum ol.topics .topic > ul > li::before, .page-forum ol.topics > li::before, .page-forum ol.categories .category > ul > li::before, .page-forum ol.categories > li::before, .page-blog ol.comments > li::before, .page-page .section-menu ul > li::before,
 .page-docs .section-menu ul > li::before, .page-ioDocs .endpointList > li::before,
 .page-ioDocs .methods > li::before {
 	content: "​";
@@ -393,7 +393,7 @@ dt {
  * Removes list styling.
  * For semantic reasons, should only be used on unordered lists.
  */
-.list-unstyled, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-forum ol.categories .category > ul, .page-forum ol.categories, .page-blog ol.comments, .page-page .section-menu ul,
+.list-unstyled, #application-edit ul, .page-forum ol.comments, .page-forum ol.topics .topic > ul, .page-forum ol.topics, .page-forum ol.categories .category > ul, .page-forum ol.categories, .page-blog ol.comments, .page-page .section-menu ul,
 .page-docs .section-menu ul, .page-ioDocs .endpointList,
 .page-ioDocs .methods {
 	margin-left: 0;
@@ -402,7 +402,7 @@ dt {
 /**
  * Display lists on a single line.
  */
-.list-inline, .page-apps .main .navigation ul,
+.list-inline, .page-logout .main ul, .page-key .main ul.nav, .page-apps .main .navigation ul,
 .page-apps .main .actions ul, .page-apps.register .section-body table ul,
 .page-member .main .navigation ul,
 .page-member .main .actions ul,
@@ -411,7 +411,7 @@ dt {
 .nav-user-list {
 	display: flex;
 }
-.list-inline > li, .page-apps .main .navigation ul > li,
+.list-inline > li, .page-logout .main ul > li, .page-key .main ul.nav > li, .page-apps .main .navigation ul > li,
 .page-apps .main .actions ul > li, .page-apps.register .section-body table ul > li,
 .page-member .main .navigation ul > li,
 .page-member .main .actions ul > li,
@@ -420,7 +420,7 @@ dt {
 .nav-user-list > li {
 	margin: 0 0.5em;
 }
-.list-inline > li:first-child, .page-apps .main .navigation ul > li:first-child,
+.list-inline > li:first-child, .page-logout .main ul > li:first-child, .page-key .main ul.nav > li:first-child, .page-apps .main .navigation ul > li:first-child,
 .page-apps .main .actions ul > li:first-child, .page-apps.register .section-body table ul > li:first-child,
 .page-member .main .navigation ul > li:first-child,
 .page-member .main .actions ul > li:first-child,
@@ -560,7 +560,9 @@ pre code {
 /**
  * Primary buttons
  */
-.btn, .page-forum .create-new, button,
+.btn, .page-logout .main ul a, .page-key .options a, .application-actions a.action,
+.key-actions a.action,
+a.add-app.action, .page-forum .create-new, button,
 [type=submit] {
 	background-color: var(--color-btn-primary-bg);
 	border: 0.125em solid var(--color-btn-primary-bg);
@@ -573,17 +575,23 @@ pre code {
 	margin-bottom: 0.3125em;
 	padding: 0.5em 0.6875em;
 }
-.btn:hover, .page-forum .create-new:hover, button:hover,
-[type=submit]:hover, .btn:active, .page-forum .create-new:active, button:active,
+.btn:hover, .page-logout .main ul a:hover, .page-key .options a:hover, .application-actions a.action:hover,
+.key-actions a.action:hover,
+a.add-app.action:hover, .page-forum .create-new:hover, button:hover,
+[type=submit]:hover, .btn:active, .page-logout .main ul a:active, .page-key .options a:active, .application-actions a.action:active,
+.key-actions a.action:active,
+a.add-app.action:active, .page-forum .create-new:active, button:active,
 [type=submit]:active {
 	background-color: var(--color-btn-primary-bg-hover);
 	border-color: var(--color-btn-primary-bg-hover);
 	color: var(--color-btn-primary-text-hover);
 }
 
-a.btn, .page-forum a.create-new,
+a.btn, .page-logout .main ul a, .page-key .options a, .application-actions a.action,
+.key-actions a.action,
+a.add-app.action, .page-forum a.create-new,
 a[type=submit] {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 /**
@@ -603,14 +611,26 @@ a[type=submit] {
 /**
  * Tertiary buttons
  */
-.btn-transparent, .page-apps .process-1,
+.btn-transparent, .application-actions a.action.delete, .application-actions a.action.delete-app,
+.key-actions a.action.delete,
+.key-actions a.action.delete-app,
+a.add-app.action.delete,
+a.add-app.action.delete-app, .page-apps .process-1,
 .page-member .process-1 {
 	background-color: var(--color-btn-transparent-bg);
 	border-color: var(--color-btn-transparent-border);
 	color: var(--color-btn-transparent-text);
 }
-.btn-transparent:hover, .page-apps .process-1:hover,
-.page-member .process-1:hover, .btn-transparent:active, .page-apps .process-1:active,
+.btn-transparent:hover, .application-actions a.action.delete:hover, .application-actions a.action.delete-app:hover,
+.key-actions a.action.delete:hover,
+.key-actions a.action.delete-app:hover,
+a.add-app.action.delete:hover,
+a.add-app.action.delete-app:hover, .page-apps .process-1:hover,
+.page-member .process-1:hover, .btn-transparent:active, .application-actions a.action.delete:active, .application-actions a.action.delete-app:active,
+.key-actions a.action.delete:active,
+.key-actions a.action.delete-app:active,
+a.add-app.action.delete:active,
+a.add-app.action.delete-app:active, .page-apps .process-1:active,
 .page-member .process-1:active {
 	background-color: var(--color-btn-primary-bg);
 	border-color: var(--color-btn-primary-bg);
@@ -621,7 +641,9 @@ a[type=submit] {
 /**
  * Active state
  */
-.btn:active, .page-forum .create-new:active, button:active,
+.btn:active, .page-logout .main ul a:active, .page-key .options a:active, .application-actions a.action:active,
+.key-actions a.action:active,
+a.add-app.action:active, .page-forum .create-new:active, button:active,
 [type=submit]:active {
 	box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
 	outline: 0;
@@ -630,9 +652,20 @@ a[type=submit] {
 /**
  * Disabled state
  */
-.btn[disabled], .page-forum [disabled].create-new, button[disabled],
+.btn[disabled], .page-logout .main ul a[disabled], .page-key .options a[disabled], .application-actions a[disabled].action,
+.key-actions a[disabled].action,
+a[disabled].add-app.action, .page-forum [disabled].create-new, button[disabled],
 [disabled][type=submit],
 [data-submitting] .btn,
+[data-submitting] .page-logout .main ul a,
+.page-logout .main ul [data-submitting] a,
+[data-submitting] .page-key .options a,
+.page-key .options [data-submitting] a,
+[data-submitting] .application-actions a.action,
+.application-actions [data-submitting] a.action,
+[data-submitting] .key-actions a.action,
+.key-actions [data-submitting] a.action,
+[data-submitting] a.add-app.action,
 [data-submitting] .page-forum .create-new,
 .page-forum [data-submitting] .create-new,
 [data-submitting] button,
@@ -666,7 +699,9 @@ a[type=submit] {
 /**
  * General styles
  */
-.btn, .page-forum .create-new,
+.btn, .page-logout .main ul a, .page-key .options a, .application-actions a.action,
+.key-actions a.action,
+a.add-app.action, .page-forum .create-new,
 [type=submit],
 button,
 html input[type=button],
@@ -680,7 +715,9 @@ input[type=submit] {
 /**
  * Remove right margin on last element and inputs
  */
-.btn:last-child, .page-forum .create-new:last-child, button:last-child,
+.btn:last-child, .page-logout .main ul a:last-child, .page-key .options a:last-child, .application-actions a.action:last-child,
+.key-actions a.action:last-child,
+a.add-app.action:last-child, .page-forum .create-new:last-child, button:last-child,
 [type=submit]:last-child,
 input.btn,
 .page-forum input.create-new,
@@ -758,6 +795,15 @@ select {
 
 form button,
 form .btn,
+form .page-logout .main ul a,
+.page-logout .main ul form a,
+form .page-key .options a,
+.page-key .options form a,
+form .application-actions a.action,
+.application-actions form a.action,
+form .key-actions a.action,
+.key-actions form a.action,
+form a.add-app.action,
 form .page-forum .create-new,
 .page-forum form .create-new,
 form [type=submit] {
@@ -808,35 +854,6 @@ textarea:focus {
 	padding-top: 0.125em;
 	padding-bottom: 0.125em;
 	vertical-align: top;
-}
-
-/**
- * Password requirements
- */
-ul.requirements {
-	margin-left: 1em;
-}
-ul.requirements ul.requirements {
-	margin-left: 2em;
-}
-ul.requirements li::marker {
-	content: "× ";
-}
-ul.requirements li.valid {
-	color: var(--color-post);
-}
-ul.requirements li.valid::marker {
-	content: "✓ ";
-}
-
-/**
- * Description fields
- */
-form .descr {
-	font-weight: normal;
-}
-form .descr p {
-	margin: 0;
 }
 
 /**
@@ -1080,6 +1097,38 @@ td {
 .footer-wrapper a:active,
 .footer-wrapper a:hover {
 	filter: brightness(1);
+}
+
+/**
+ * @section Forms
+ * Shared form styling across all themes
+ */
+/**
+ * Password requirements
+ */
+ul.requirements {
+	margin-left: 1em;
+}
+ul.requirements ul.requirements {
+	margin-left: 2em;
+}
+ul.requirements li::marker {
+	color: var(--color-delete);
+	content: "× ";
+}
+ul.requirements li.valid::marker {
+	color: var(--color-post);
+	content: "✓ ";
+}
+
+/**
+ * Description fields
+ */
+form .descr {
+	font-weight: normal;
+}
+form .descr p {
+	margin: 0;
 }
 
 /**
@@ -1581,6 +1630,27 @@ td {
 	color: var(--color-black);
 	font-weight: bold;
 }
+#application-edit ul {
+	padding-left: var(--spacing);
+	padding-right: var(--spacing);
+}
+
+/**
+ * @section API Key Reports
+ * Overrides typography on API key reports page
+ */
+.page-key .main ul.nav .active a {
+	color: var(--color-black);
+	font-weight: bold;
+}
+.page-key .chart.loading {
+	font-style: italic;
+	margin-bottom: var(--spacing);
+}
+/**
+ * @section Apps & Member
+ * Overrides typography on apps and member pages
+ */
 /**
  * @section Default Theme
  */

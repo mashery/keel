@@ -14,9 +14,12 @@
 
 // Mashery Components
 @import "components/mashery/base";
+@import "components/mashery/forms";
 @import "components/mashery/io-docs";
 @import "components/mashery/swagger-ui";
 @import "components/mashery/pages";
 @import "components/mashery/blog";
 @import "components/mashery/forum";
 @import "components/mashery/apps";
+@import "components/mashery/reports";
+@import "components/mashery/logout";

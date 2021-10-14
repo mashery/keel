@@ -50,8 +50,11 @@ function getLang (className) {
 function prepCodeSnippets () {
 
 	// Remove default syntax highlighter
-	SyntaxHighlighter = {};
-	SyntaxHighlighter.all = function () {};
+	if ('SyntaxHighlighter' in window) {
+		SyntaxHighlighter = {};
+		SyntaxHighlighter.all = function () {};
+
+	}
 
 	// Add lang class to code snippets
 	let pre = document.querySelectorAll('pre');

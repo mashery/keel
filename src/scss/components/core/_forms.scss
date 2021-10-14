@@ -118,38 +118,3 @@ textarea:focus {
 [type="submit"] {
 	@extend .input-inline;
 }
-
-
-/**
- * Password requirements
- */
-ul.requirements {
-	margin-left: 1em;
-
-	ul.requirements {
-		margin-left: 2em;
-	}
-
-	li::marker {
-		content: "× ";
-	}
-
-	li.valid {
-		color: var(--color-post);
-
-		&::marker {
-			content: "✓ ";
-		}
-	}
-}
-
-/**
- * Description fields
- */
-form .descr {
-	font-weight: normal;
-
-	p {
-		margin: 0;
-	}
-}
