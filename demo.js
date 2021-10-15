@@ -20,6 +20,11 @@ function getParams (url = window.location) {
 
 function getThemeJS (theme) {
 
+	// Use default theme by default
+	if (!theme) {
+		theme = 'default';
+	}
+
 	if (theme === 'default') {
 return `// Default Layout
 keel.header('navUser', 'logo', 'navMain');
@@ -62,27 +67,34 @@ keel.logo('${logo}');`;
 	return '';
 }
 
-function getThemeCSS (font, colors) {
+function getThemeCSS (settings = []) {
+
+	// Hold CSS props
 	let css = [];
-	if (font) {
-		css.push(`    --font-primary: ${font};`);
-	}
-	if (colors) {
-		colors = colors.split(',').map(function (color) {
-		    return color.split(':');
+
+	// Create CSS props
+	for (let type of settings) {
+
+		if (!type) continue;
+
+		let props = type.split(',').map(function (prop) {
+		    return prop.split(':');
 		});
-		for (let [key, value] of colors) {
-			css.push(`    --${key}: ${value};`);
+
+		for (let [prop, value] of props) {
+			css.push(`    --${prop}: ${value};`);
 		}
-		if (!css.length) return '';
 	}
+
+	if (!css.length) return '';
 	return `:root {
 ${css.join("\n")}
 }`;
+
 }
 
 function getThemeStylesheet (theme) {
-	return `https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist/css/${theme}.css`;
+	return `https://cdn.jsdelivr.net/gh/mashery/keel@0/dist/css/${theme ? theme : 'default'}.css`;
 }
 
 function loadCSS (css) {
@@ -105,13 +117,12 @@ function loadTheme () {
 	if (hasParams) {
 		sessionStorage.setItem('themeDemo', JSON.stringify(params));
 	}
-	params = hasParams ? params : JSON.parse(sessionStorage.getItem('themeDemo'));
-	if (!params) return;
-	let css = getThemeCSS(params.font, params.colors); // needs work
+	params = (hasParams ? params : JSON.parse(sessionStorage.getItem('themeDemo'))) || {};
+	let css = getThemeCSS([params.colors, params.fonts, params.spacing]);
 	let js = getThemeJS(params.theme) + getLogoJS(params.logo);
 
 	// Get DOM elements
-	let cssLink = document.querySelector('[href^="https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist/css/"]');
+	let cssLink = document.querySelector('[href^="https://cdn.jsdelivr.net/gh/mashery/keel@0/dist/css/"]');
 
 	// Inject all the things
 	cssLink.href = getThemeStylesheet(params.theme);

@@ -33,6 +33,14 @@
 			background-color: #cccccc;
 			filter: brightness(1);
 		}
+
+		textarea {
+			min-height: 50vh;
+		}
+
+		[readonly] {
+			font-family: Menlo, Monaco, "Courier New", monospace;
+		}
 	</style>
 </head>
 <body>
@@ -41,137 +49,263 @@
 
 		<h1>Demo</h1>
 
-		<div class="row">
-			<div class="grid-half">
-				<h2>1. Pick your theme</h2>
-				<p>The theme controls the layout of the header and navigation areas.</p>
+		<details class="margin-bottom-small" open>
+			<summary><strong>1. Pick your layout</strong></summary>
 
-				<label>
-					<input type="radio" name="theme" value="default" checked>
-					Default
-				</label>
+			<p>This controls the layout of the header, navigation, main content, and footer.</p>
 
-				<div class="layout text-right">User Nav</div>
-				<div class="row margin-bottom">
-					<div class="layout grid-fourth">Logo</div>
-					<div class="layout grid-three-fourths">Main Nav</div>
-				</div>
+			<label>
+				<input type="radio" name="theme" value="default" checked>
+				Default
 
-				<label>
-					<input type="radio" name="theme" value="combo">
-					Combo Nav
-				</label>
-
-				<div class="row margin-bottom">
-					<div class="layout grid-fourth">Logo</div>
-					<div class="layout grid-half">Main Nav</div>
-					<div class="layout grid-fourth text-right">User Nav</div>
-				</div>
-
-				<label>
-					<input type="radio" name="theme" value="big">
-					Big Nav
-				</label>
-
-				<div class="row">
-					<div class="layout grid-fourth">Logo</div>
-					<div class="layout grid-three-fourths text-right">User Nav</div>
-				</div>
-				<div class="margin-bottom"><div class="layout">Main Nav</div></div>
-
-				<label>
-					<input type="radio" name="theme" value="simple">
-					Simple
-				</label>
-
-				<div class="margin-bottom text-center">
-					<div class="layout">User Nav</div>
-					<div class="layout">Logo</div>
-					<div class="layout">Main Nav</div>
-				</div>
-
-				<h2>2. Pick your font stack</h2>
-
-				<label for="font">Font Stack (comma-separated)</label>
-				<input type="input" id="font" value='"Helvetica Neue", Arial, sans-serif'>
-
-				<h2>3. Pick Your Colors</h2>
-
-				<div class="row">
-					<div class="grid-third">
-						<label class="input-inline" for="color-text">Body Text</label>
-						<input type="color" id="color-text" value="#272727">
-					</div>
-					<div class="grid-third">
-						<label class="input-inline" for="color-form-text">Form Text</label>
-						<input type="color" id="color-form-text" value="#555555">
-					</div>
-					<div class="grid-third">
-						<label class="input-inline" for="color-link">Links</label>
-						<input type="color" id="color-link" value="#0088cc">
+				<div aria-hidden="true">
+					<div class="layout text-right">User Nav</div>
+					<div class="row margin-bottom">
+						<div class="layout grid-fourth">Logo</div>
+						<div class="layout grid-three-fourths">Main Nav</div>
 					</div>
 				</div>
+			</label>
 
-				<div class="row">
-					<div class="grid-third">
-						<label class="input-inline" for="color-header-nav-bg">Header Background</label>
-						<input type="color" id="color-header-nav-bg" value="#ffffff">
-					</div>
-					<div class="grid-third">
-						<label class="input-inline" for="color-header-border">Header Border</label>
-						<input type="color" id="color-header-border" value="#e5e5e5">
-					</div>
-					<div class="grid-third">
-						<label class="input-inline" for="color-logo-link">Logo</label>
-						<input type="color" id="color-logo-link" value="#272727">
+			<label>
+				<input type="radio" name="theme" value="combo">
+				Combo Nav
+
+				<div aria-hidden="true">
+					<div class="row margin-bottom">
+						<div class="layout grid-fourth">Logo</div>
+						<div class="layout grid-half">Main Nav</div>
+						<div class="layout grid-fourth text-right">User Nav</div>
 					</div>
 				</div>
+			</label>
 
-				<div class="row">
-					<div class="grid-third">
-						<label class="input-inline" for="color-logo-link-hover">Logo on Hover</label>
-						<input type="color" id="color-logo-link-hover" value="#0088cc">
+			<label>
+				<input type="radio" name="theme" value="big">
+				Big Nav
+
+				<div aria-hidden="true">
+					<div class="row">
+						<div class="layout grid-fourth">Logo</div>
+						<div class="layout grid-three-fourths text-right">User Nav</div>
 					</div>
-					<div class="grid-third">
-						<label class="input-inline" for="color-nav-main-bg">Main Nav Background</label>
-						<input type="color" id="color-nav-main-bg" value="#ffffff">
-					</div>
-					<div class="grid-third">
-						<label class="input-inline" for="color-nav-main-link">Main Nav Links</label>
-						<input type="color" id="color-nav-main-link" value="#0088cc">
+					<div class="margin-bottom"><div class="layout">Main Nav</div></div>
+				</div>
+			</label>
+
+			<label>
+				<input type="radio" name="theme" value="simple">
+				Simple
+
+				<div class="padding-bottom" aria-hidden="true">
+					<div class="margin-bottom text-center">
+						<div class="layout">User Nav</div>
+						<div class="layout">Logo</div>
+						<div class="layout">Main Nav</div>
 					</div>
 				</div>
+			</label>
+		</details>
 
-				<div class="row">
-					<div class="grid-third">
-						<label class="input-inline" for="color-logo-link-hover">User Nav Background</label>
-						<input type="color" id="color-logo-link-hover" value="#ffffff">
-					</div>
-					<div class="grid-third">
-						<label class="input-inline" for="color-nav-main-bg">User Nav Links</label>
-						<input type="color" id="color-nav-main-bg" value="#0088cc">
-					</div>
+		<details class="margin-bottom-small" open>
+			<summary><strong>2. Set your colors</strong></summary>
+
+			<p class="margin-bottom-small padding-top"><strong>Core Colors</strong></p>
+
+			<div class="row">
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-black">Body Text</label>
+					<input type="color" data-var="colors" id="color-black" value="#272727">
 				</div>
-
-
-				<h2>4. Have a logo image?</h2>
-
-				<label for="logo">Logo Image URL</label>
-				<input type="input" id="logo">
-
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-primary">Primary Color</label>
+					<input type="color" data-var="colors" id="color-primary" value="#0088cc">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-primary-shade">Primary Color (Shade)</label>
+					<input type="color" data-var="colors" id="color-primary-shade" value="#09567f">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-secondary">Secondary Color</label>
+					<input type="color" data-var="colors" id="color-secondary" value="#377f31">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-secondary-shade">Secondary Color (Shade)</label>
+					<input type="color" data-var="colors" id="color-secondary-shade" value="#2e652a">
+				</div>
 			</div>
-			<div class="grid-half">
-				<h2>5. Load Your Theme</h2>
-				<p>In the API Control Center under Manage > Portal > Portal Setup, add the following files and configurations.</p>
 
-				<label for="js-url"><strong>Head JavaScript File URL</strong></label>
-				<input type="text" id="js-url" value="https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist/js/keel.min.js" readonly>
+			<div class="row">
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-accent-1">Accent Color 1</label>
+					<input type="color" data-var="colors" id="color-accent-1" value="#dba909">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-accent-2">Accent Color 2</label>
+					<input type="color" data-var="colors" id="color-accent-2" value="#880e14">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-accent-3">Accent Color 3</label>
+					<input type="color" data-var="colors" id="color-accent-3" value="#860d8e">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-accent-4">Accent Color 4</label>
+					<input type="color" data-var="colors" id="color-accent-4" value="#cc7100">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-accent-5">Accent Color 5</label>
+					<input type="color" data-var="colors" id="color-accent-5" value="#00557f">
+				</div>
+			</div>
 
-				<label for="css-url"><strong>Screen Stylesheet URL</strong></label>
-				<input type="text" id="css-url" value="https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist/css/default.css" readonly>
+			<p class="margin-bottom-small padding-top"><strong>Grayscale</strong></p>
 
-				<label for="js-inline"><strong>Inline JavaScript > Head JavaScript</strong></label>
-				<textarea id="js-inline" readonly>// Default Layout
+			<div class="row">
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-gray-darker">Gray (Darker)</label>
+					<input type="color" data-var="colors" id="color-gray-darker" value="#555555">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-gray-dark">Gray (Dark)</label>
+					<input type="color" data-var="colors" id="color-gray-dark" value="#808080">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-gray-medium">Gray (Medium)</label>
+					<input type="color" data-var="colors" id="color-gray-medium" value="#b2b2b2">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-gray-light">Gray (Light)</label>
+					<input type="color" data-var="colors" id="color-gray-light" value="#e5e5e5">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-gray-lighter">Gray (Lighter)</label>
+					<input type="color" data-var="colors" id="color-gray-lighter" value="#f7f7f7">
+				</div>
+			</div>
+
+			<p class="margin-bottom-small padding-top"><strong>HTTP Methods &amp; Code Samples</strong></p>
+
+			<div class="row">
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-get">GET</label>
+					<input type="color" data-var="colors" id="color-get" value="#0088cc">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-get-bg">GET Background</label>
+					<input type="color" data-var="colors" id="color-get-bg" value="#e7f3fa">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-post">POST</label>
+					<input type="color" data-var="colors" id="color-post" value="#377f31">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-post-bg">POST Background</label>
+					<input type="color" data-var="colors" id="color-post-bg" value="#ebf2ea">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-put">PUT</label>
+					<input type="color" data-var="colors" id="color-put" value="#dba909">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-put-bg">PUT Background</label>
+					<input type="color" data-var="colors" id="color-put-bg" value="#fbf6e7">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-delete">DELETE</label>
+					<input type="color" data-var="colors" id="color-delete" value="#880e14">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-delete-bg">DELETE Background</label>
+					<input type="color" data-var="colors" id="color-delete-bg" value="#fdf2f3">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-patch">PATCH</label>
+					<input type="color" data-var="colors" id="color-patch" value="#860d8e">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-patch-bg">PATCH Background</label>
+					<input type="color" data-var="colors" id="color-patch-bg" value="#fcf3fc">
+				</div>
+			</div>
+
+			<div class="row margin-bottom">
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-options">OPTIONS</label>
+					<input type="color" data-var="colors" id="color-options" value="#cc7100">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-options-bg">OPTIONS Background</label>
+					<input type="color" data-var="colors" id="color-options-bg" value="#fff7ec">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-head">HEAD</label>
+					<input type="color" data-var="colors" id="color-head" value="#00557f">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-head-bg">HEAD Background</label>
+					<input type="color" data-var="colors" id="color-head-bg" value="#f1f9ff">
+				</div>
+				<div class="grid-fifth">
+					<label class="input-inline" for="color-code">Inline Code</label>
+					<input type="color" data-var="colors" id="color-code" value="#dd1144">
+				</div>
+			</div>
+
+		</details>
+
+		<details class="margin-bottom-small">
+			<summary><strong>3. Add a logo (<em>optional</em>)</strong></summary>
+			<p>This can be hosted externally or uploaded to the File Manager in the API Control Center. By default, your portal name is displayed as text.</p>
+
+			<label for="logo">Logo Image URL</label>
+			<input class="margin-bottom" type="input" id="logo">
+		</details>
+
+		<details class="margin-bottom-small">
+			<summary><strong>4. Customize your fonts (<em>optional</em>)</strong></summary>
+
+			<label class="padding-top" for="font-primary">Primary Font Stack (<em>comma-separated</em>)</label>
+			<input type="input" data-var="fonts" id="font-primary" value='"Helvetica Neue", Arial, sans-serif'>
+
+			<label for="font-monospace">Monospace Font Stack (<em>for code snippets</em>)</label>
+			<input type="input" data-var="fonts" id="font-monospace" value='Menlo, Monaco, "Courier New", monospace'>
+
+			<label for="font-size">Font Size</label>
+			<input type="input" data-var="fonts" class="margin-bottom" id="font-size" value="100%">
+		</details>
+
+		<details class="margin-bottom-small">
+			<summary><strong>5. Adjust size and spacing (<em>optional</em>)</strong></summary>
+			<p>Control how wide the page is and how much space is shown between various elements.</p>
+
+			<label for="spacing">Spacing (<em>between paragraphs and other elements</em>)</label>
+			<input type="input" data-var="spacing" id="spacing" value="1.5625em">
+
+			<label for="container-width">Container Width</label>
+			<input type="input" data-var="spacing" id="container-width" value="88%">
+
+			<label for="container-max-width">Max Container Size</label>
+			<input type="input" data-var="spacing" id="container-max-width" value="80em">
+
+			<label for="container-max-width-small">Max Container Size on Small Viewports</label>
+			<input type="input" data-var="spacing" class="margin-bottom" id="container-max-width-small" value="50em">
+		</details>
+
+		<details class="margin-bottom-small" open>
+			<summary><strong>6. Load your theme</strong></summary>
+			<p>In the API Control Center under Manage > Portal > Portal Setup, add the following files and configurations.</p>
+
+			<label for="js-url"><strong>Head JavaScript File URL</strong></label>
+			<input type="text" id="js-url" value="https://cdn.jsdelivr.net/gh/mashery/keel@0/dist/js/keel.min.js" readonly>
+
+			<label for="css-url"><strong>Screen Stylesheet URL</strong></label>
+			<input type="text" id="css-url" value="https://cdn.jsdelivr.net/gh/mashery/keel@0/dist/css/default.css" readonly>
+
+			<label for="js-inline"><strong>Inline JavaScript > Head JavaScript</strong></label>
+			<textarea id="js-inline" readonly>// Default Layout
 keel.header('navUser', 'logo', 'navMain');
 keel.ready(function () {
 	let dom = keel.getDOM();
@@ -179,12 +313,11 @@ keel.ready(function () {
 	wrap.className = 'logo-nav-wrapper';
 });</textarea>
 
-				<label for="css-inline"><strong>Inline CSS > "Last Minute" CSS Overrides</strong></label>
-				<textarea id="css-inline" readonly></textarea>
+			<label for="css-inline"><strong>Inline CSS > "Last Minute" CSS Overrides</strong></label>
+			<textarea id="css-inline" readonly></textarea>
 
-				<p><a id="demo" target="_blank" href="https://stagingcs17.mashery.com">Live Preview</a></p>
-			</div>
-		</div>
+			<p><a id="demo" target="_blank" href="https://stagingcs17.mashery.com">Live Preview</a></p>
+		</details>
 
 	</div>
 
@@ -201,9 +334,12 @@ keel.ready(function () {
 		let demo = document.querySelector('#demo');
 
 		// Data
-		let cdn = 'https://cdn.jsdelivr.net/gh/mashery/keel@0.0.3/dist';
-		let font = '';
-		let colors = {};
+		let cdn = 'https://cdn.jsdelivr.net/gh/mashery/keel@0/dist';
+		let settings = {
+			colors: {},
+			fonts: {},
+			spacing: {}
+		};
 
 
 		//
@@ -211,16 +347,24 @@ keel.ready(function () {
 		//
 
 		function setDemoURL () {
-			// let details = Object.assign({}, colors);
+
+			// The settings details
 			let details = {};
-			details.colors = Object.entries(colors).map(function (color) {
-				let [name, val] = color;
-				return `${name}:${val}`;
-			});
+
+			// Create details for colors, fonts, and spacing
+			for (let [key, obj] of Object.entries(settings)) {
+				if (!Object.keys(obj).length) continue;
+				details[key] = Object.entries(obj).map(function (entries) {
+					let [name, val] = entries;
+					return `${name}:${val}`;
+				});
+			}
+
+			// Set the theme and logo
 			details.theme = document.querySelector('[name="theme"]:checked').value;
-			if (font.length) { details.font = font; }
 			if (logo.value.length) { details.logo = logo.value; }
 			demo.href = `http://stagingcs17.mashery.com?${new URLSearchParams(details).toString()}`;
+
 		}
 
 		function getThemeJS () {
@@ -270,16 +414,25 @@ keel.logo('${logo.value}');`;
 		}
 
 		function getThemeCSS () {
-			let css = [];
-			if (font.length) {
-				css.push(`    --font-primary: ${font};`);
+
+			// Setup items
+			let css = {
+				colors: [],
+				fonts: [],
+				spacing: []
+			};
+
+			// Create CSS variables
+			for (let [key, obj] of Object.entries(settings)) {
+				for (let [prop, value] of Object.entries(obj)) {
+					css[key].push(`    --${prop}: ${value};`);
+				}
 			}
-			for (let [key, value] of Object.entries(colors)) {
-				css.push(`    --${key}: ${value};`);
-			}
-			if (!css.length) return '';
-			return `:root {
-${css.join("\n")}
+
+			// If there are no vars to set, return an empty string
+			if (!css.colors.length && !css.fonts.length && !css.spacing.length) return '';
+			return `:root {${css.colors.length ? `\n\n    /* Colors */\n${css.colors.join("\n")}` : ''}${css.fonts.length ? `\n\n    /* Fonts */\n${css.fonts.join("\n")}` : ''}${css.spacing.length ? `\n\n    /* Width & Spacing */\n${css.spacing.join("\n")}` : ''}
+
 }`;
 		}
 
@@ -289,15 +442,10 @@ ${css.join("\n")}
 			jsInline.value = getThemeJS() + getLogoJS();
 		}
 
-		function handleFont (input) {
-			if (input.id !== 'font') return;
-			font = input.value;
-			cssInline.value = getThemeCSS();
-		}
-
-		function handleColors (input) {
-			if (!input.id.startsWith('color-')) return;
-			colors[input.id] = input.value;
+		function handleVars (input) {
+			let type = input.getAttribute('data-var');
+			if (!type) return;
+			settings[type][input.id] = input.value;
 			cssInline.value = getThemeCSS();
 		}
 
@@ -315,8 +463,7 @@ ${css.join("\n")}
 		document.addEventListener('input', function (event) {
 			if (event.target.hasAttribute('readonly')) return;
 			handleTheme(event.target);
-			handleFont(event.target);
-			handleColors(event.target);
+			handleVars(event.target);
 			handleLogo(event.target);
 			setDemoURL();
 		});
