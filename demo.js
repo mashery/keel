@@ -112,12 +112,13 @@ function loadJS (js) {
 function loadTheme () {
 
 	// Get values
-	let params = getParams();
-	let hasParams = Object.keys(params).length;
-	if (hasParams) {
-		sessionStorage.setItem('themeDemo', JSON.stringify(params));
+	let params = JSON.parse(sessionStorage.getItem('themeDemo'));
+	if (!params) {
+		params = getParams();
+		if (Object.keys(params).length) {
+			sessionStorage.setItem('themeDemo', JSON.stringify(params));
+		}
 	}
-	params = (hasParams ? params : JSON.parse(sessionStorage.getItem('themeDemo'))) || {};
 	let css = getThemeCSS([params.colors, params.fonts, params.spacing]);
 	let js = getThemeJS(params.theme) + getLogoJS(params.logo);
 
