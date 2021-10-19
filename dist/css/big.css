@@ -1,4 +1,4 @@
-/*! keel - big v0.0.7 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
+/*! keel - big v0.0.8 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
 @charset "UTF-8";
 :root {
 	/**
@@ -1628,7 +1628,7 @@ form .descr p {
 
 .logo-nav-wrapper {
 	display: grid;
-	grid-template-columns: fit-content(20ch) minmax(min(50vw, 30ch), 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
 	grid-template-rows: 1fr;
 	grid-column-gap: 1em;
 	grid-row-gap: 0;

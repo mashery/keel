@@ -1,4 +1,4 @@
-/*! keel - combo v0.0.7 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
+/*! keel - combo v0.0.8 | (c) 2021 TIBCO | MIT License | http://github.com/mashery/keel */
 @charset "UTF-8";
 :root {
 	/**
@@ -1632,6 +1632,7 @@ form .descr p {
 
 	.nav-logo {
 		grid-area: 1/1/2/2;
+		padding-top: 0.1875em;
 	}
 
 	.nav-main-wrapper {
